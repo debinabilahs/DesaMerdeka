@@ -33,7 +33,7 @@ class MyApp extends StatelessWidget {
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(0),
                         ),
-                        labelText: 'Masukan Email anda',
+                        labelText: 'Masukan Email Anda',
                       ),
                     ),
                   ),
@@ -45,7 +45,7 @@ class MyApp extends StatelessWidget {
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(0),
                         ),
-                        labelText: ' Masukan Password anda',
+                        labelText: ' Masukan Password Anda',
                       ),
                     ),
                   ),
@@ -56,14 +56,21 @@ class MyApp extends StatelessWidget {
                         style: ElevatedButton.styleFrom(
                             minimumSize: const Size.fromHeight(50),
                             backgroundColor: Colors.red),
-                        child: Text('Log In'),
+                        child: Text('Login'),
                         onPressed: () {},
                       )),
                   TextButton(
                     onPressed: () {},
                     child: Text(
-                      'Belum mempunyai akun? Registrasi!',
+                      'Belum mempunyai akun?',
                       style: TextStyle(color: Colors.black),
+                    ),
+                  ),
+                  TextButton(
+                    onPressed: () {},
+                    child: Text(
+                      'Registrasi!',
+                      style: TextStyle(color: Colors.blue),
                     ),
                   ),
                 ],
