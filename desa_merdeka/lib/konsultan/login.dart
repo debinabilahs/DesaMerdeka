@@ -1,23 +1,20 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+  MyApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        title: 'Login',
-        theme: ThemeData(
-          primarySwatch: Colors.red,
-        ),
         home: Scaffold(
             appBar: AppBar(
+              backgroundColor: Colors.red,
               title: Text('DESA MERDEKA'),
-              centerTitle: true,
+              centerTitle: false,
             ),
             body: SingleChildScrollView(
               child: Column(
@@ -27,6 +24,7 @@ class MyApp extends StatelessWidget {
                   Container(
                       width: 100,
                       height: 100,
+                      padding: EdgeInsets.all(5),
                       child: Image.asset("images/DesaMerdeka.png")),
                   Container(
                     padding: const EdgeInsets.fromLTRB(20, 20, 20, 0),
@@ -35,7 +33,7 @@ class MyApp extends StatelessWidget {
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(0),
                         ),
-                        labelText: 'Email',
+                        labelText: 'Masukan Email anda',
                       ),
                     ),
                   ),
@@ -47,7 +45,7 @@ class MyApp extends StatelessWidget {
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(0),
                         ),
-                        labelText: 'Password',
+                        labelText: ' Masukan Password anda',
                       ),
                     ),
                   ),
@@ -56,9 +54,9 @@ class MyApp extends StatelessWidget {
                       padding: const EdgeInsets.all(20),
                       child: ElevatedButton(
                         style: ElevatedButton.styleFrom(
-                          minimumSize: const Size.fromHeight(50),
-                        ),
-                        child: const Text('Log In'),
+                            minimumSize: const Size.fromHeight(50),
+                            backgroundColor: Colors.red),
+                        child: Text('Log In'),
                         onPressed: () {},
                       )),
                   TextButton(
