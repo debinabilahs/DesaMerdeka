@@ -11,6 +11,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
+        backgroundColor: Colors.grey,
         appBar: AppBar(
           backgroundColor: Colors.red,
           title: Text('DESA MERDEKA'),
@@ -27,7 +28,8 @@ class MyApp extends StatelessWidget {
                   padding: EdgeInsets.all(5),
                   child: Image.asset("images/DesaMerdeka.png")),
               Container(
-                padding: const EdgeInsets.fromLTRB(20, 20, 20, 0),
+                margin: EdgeInsets.all(10),
+                decoration: BoxDecoration(color: Colors.white),
                 child: TextField(
                   decoration: InputDecoration(
                     border: OutlineInputBorder(
@@ -38,7 +40,8 @@ class MyApp extends StatelessWidget {
                 ),
               ),
               Container(
-                padding: const EdgeInsets.fromLTRB(20, 20, 20, 0),
+                margin: EdgeInsets.all(10),
+                decoration: BoxDecoration(color: Colors.white),
                 child: TextField(
                   obscureText: true,
                   decoration: InputDecoration(
@@ -71,7 +74,7 @@ class MyApp extends StatelessWidget {
                 onPressed: () {},
                 child: Text(
                   'Registrasi!',
-                  style: TextStyle(color: Colors.blue),
+                  style: TextStyle(color: Color.fromARGB(255, 33, 44, 243)),
                 ),
               ),
             ],
