@@ -84,8 +84,15 @@ class MyApp extends StatelessWidget {
                   TextButton(
                     onPressed: () {},
                     child: Text(
-                      'Sudah memiliki mempunyai akun? Login!',
+                      'Sudah memiliki akun?',
                       style: TextStyle(color: Colors.black),
+                    ),
+                  ),
+                  TextButton(
+                    onPressed: () {},
+                    child: Text(
+                      'Login!',
+                      style: TextStyle(color: Colors.blue),
                     ),
                   ),
                 ],
