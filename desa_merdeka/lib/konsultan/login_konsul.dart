@@ -5,13 +5,33 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  MyApp({Key? key}) : super(key: key);
+  MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: HomePage(),
+    );
+  }
+}
+
+class HomePage extends StatefulWidget {
+  HomePage({super.key});
+
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  bool isHidden = true;
+  TextEditingController emailC = TextEditingController();
+  TextEditingController passC = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        backgroundColor: Colors.grey,
+        backgroundColor: Colors.grey[400],
         appBar: AppBar(
           backgroundColor: Colors.red,
           title: Text('DESA MERDEKA'),
@@ -31,85 +51,73 @@ class MyApp extends StatelessWidget {
                 margin: EdgeInsets.all(10),
                 decoration: BoxDecoration(color: Colors.white),
                 child: TextField(
-                  decoration: InputDecoration(
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(0),
-                    ),
-                    labelText: 'Masukan Email Anda',
-                  ),
-                ),
-              ),
-              Container(
-                margin: EdgeInsets.all(10),
-                decoration: BoxDecoration(color: Colors.white),
-                child: TextField(
-                  decoration: InputDecoration(
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(0),
-                    ),
-                    labelText: 'Nama Pengguna',
-                  ),
-                ),
-              ),
-              Container(
-                margin: EdgeInsets.all(10),
-                decoration: BoxDecoration(color: Colors.white),
-                child: TextField(
-                  decoration: InputDecoration(
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(0),
-                    ),
-                    labelText: 'Masukan Nama Desa Anda',
-                  ),
-                ),
-              ),
-              Container(
-                margin: EdgeInsets.all(10),
-                decoration: BoxDecoration(color: Colors.white),
-                child: TextField(
-                  decoration: InputDecoration(
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(0),
-                    ),
-                    labelText: 'Masukan Nomor Telepon Anda',
-                  ),
-                ),
-              ),
-              Container(
-                margin: EdgeInsets.all(10),
-                decoration: BoxDecoration(color: Colors.white),
-                child: TextField(
+                  controller: emailC,
+                  autocorrect: false,
+                  keyboardType: TextInputType.emailAddress,
+                  textInputAction: TextInputAction.next,
                   obscureText: true,
                   decoration: InputDecoration(
+                    contentPadding:
+                        EdgeInsets.symmetric(horizontal: 30, vertical: 20),
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(0),
                     ),
-                    labelText: 'Buat Password Anda',
+                    labelText: 'Masukan Email anda',
+                  ),
+                ),
+              ),
+              SizedBox(height: 20),
+              Container(
+                margin: EdgeInsets.all(10),
+                decoration: BoxDecoration(color: Colors.white),
+                child: TextField(
+                  controller: passC,
+                  autocorrect: false,
+                  obscureText: isHidden,
+                  textInputAction: TextInputAction.done,
+                  decoration: InputDecoration(
+                    contentPadding:
+                        EdgeInsets.symmetric(horizontal: 30, vertical: 20),
+                    labelText: " Masukan Password",
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(0),
+                    ),
+                    suffixIcon: IconButton(
+                      onPressed: () {
+                        if (isHidden == true) {
+                          isHidden = false;
+                        } else {
+                          isHidden = true;
+                        }
+                        setState(() {});
+                      },
+                      icon: Icon(Icons.remove_red_eye),
+                    ),
                   ),
                 ),
               ),
               Container(
-                height: 60,
-                padding: EdgeInsets.all(10),
+                height: 80,
+                padding: const EdgeInsets.all(20),
                 child: ElevatedButton(
                   style: ElevatedButton.styleFrom(
                       minimumSize: const Size.fromHeight(50),
                       backgroundColor: Colors.red),
-                  child: Text('Registrasi'),
+                  child: Text('Login'),
                   onPressed: () {},
                 ),
               ),
               TextButton(
                 onPressed: () {},
                 child: Text(
-                  'Sudah memiliki akun?',
+                  'Belum mempunyai akun?',
                   style: TextStyle(color: Colors.black),
                 ),
               ),
               TextButton(
                 onPressed: () {},
                 child: Text(
-                  'Login!',
+                  'Registrasi!',
                   style: TextStyle(color: Color.fromARGB(255, 33, 44, 243)),
                 ),
               ),
