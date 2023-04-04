@@ -5,7 +5,38 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  MyApp({Key? key}) : super(key: key);
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: HomePage(),
+    );
+  }
+}
+
+class HomePage extends StatefulWidget {
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  final List data = [
+    {
+      "judul": "Komunitas",
+      "data": 1,
+    },
+    {
+      "judul": "Desa",
+      "data": 2,
+    },
+    {
+      "judul": "Perusahaan",
+      "data": 3,
+    },
+  ];
+
+  late int dataAwal;
 
   @override
   Widget build(BuildContext context) {
@@ -20,13 +51,13 @@ class MyApp extends StatelessWidget {
         body: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.start,
             children: <Widget>[
               Container(
                   width: 100,
                   height: 100,
                   padding: EdgeInsets.all(5),
-                  child: Image.asset("images/DesaMerdeka.jpg")),
+                  child: Image.asset("images/DesaMerdeka.png")),
               Container(
                 margin: EdgeInsets.all(10),
                 decoration: BoxDecoration(color: Colors.white),
@@ -54,12 +85,26 @@ class MyApp extends StatelessWidget {
               Container(
                 margin: EdgeInsets.all(10),
                 decoration: BoxDecoration(color: Colors.white),
-                child: TextField(
-                  decoration: InputDecoration(
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(0),
-                    ),
-                    labelText: 'Masukan Nama Desa Anda',
+                child: DropdownButtonHideUnderline(
+                  child: DropdownButton<int>(
+                    value: dataAwal,
+                    items: data
+                        .map(
+                          (e) => DropdownMenuItem(
+                            child: Text("${e['judul']}"),
+                            value: e['data'] as int,
+                          ),
+                        )
+                        .toList(),
+                    onChanged: (value) {
+                      setState(() {
+                        dataAwal = value!;
+                      });
+                    },
+                    hint: Text("Status"),
+                    disabledHint: Text("Disabled"),
+                    icon: Icon(Icons.arrow_drop_down_circle),
+                    isExpanded: true,
                   ),
                 ),
               ),

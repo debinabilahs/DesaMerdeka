@@ -26,7 +26,7 @@ class MyApp extends StatelessWidget {
                 width: 100,
                 height: 100,
                 padding: EdgeInsets.all(5),
-                child: Image.asset("images/DesaMerdeka.jpg"),
+                child: Image.asset("images/DesaMerdeka.png"),
               ),
               Container(
                 margin: EdgeInsets.all(10),
