@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:desa_merdeka/home.dart';
+import 'registrasi.dart';
 
-void main() {
-  runApp(MyApp());
-}
-
-class MyApp extends StatelessWidget {
-  MyApp({Key? key}) : super(key: key);
+class LoginPage extends StatelessWidget {
+  LoginPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -61,7 +59,16 @@ class MyApp extends StatelessWidget {
                       minimumSize: const Size.fromHeight(50),
                       backgroundColor: Colors.red),
                   child: Text('Login'),
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) {
+                          return DesaMerdeka();
+                        },
+                      ),
+                    );
+                  },
                 ),
               ),
               TextButton(
@@ -72,7 +79,13 @@ class MyApp extends StatelessWidget {
                 ),
               ),
               TextButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (context) => RegistrasiPage(),
+                    ),
+                  );
+                },
                 child: Text(
                   'Registrasi!',
                   style: TextStyle(color: Color.fromARGB(255, 33, 44, 243)),

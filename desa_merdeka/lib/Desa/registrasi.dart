@@ -1,11 +1,8 @@
 import 'package:flutter/material.dart';
+import 'login.dart';
 
-void main() {
-  runApp(MyApp());
-}
-
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class RegistrasiPage extends StatelessWidget {
+  const RegistrasiPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -37,6 +34,13 @@ class _HomePageState extends State<HomePage> {
   ];
 
   late int dataAwal;
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    dataAwal = data[1]["data"];
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -140,8 +144,26 @@ class _HomePageState extends State<HomePage> {
                   style: ElevatedButton.styleFrom(
                       minimumSize: const Size.fromHeight(50),
                       backgroundColor: Colors.red),
+                  onPressed: () {
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(
+                        content: Text(
+                          "Registrasi Berhasil",
+                          style: TextStyle(
+                            color: Colors.black,
+                          ),
+                        ),
+                        backgroundColor: Colors.blueAccent,
+                        duration: Duration(seconds: 1),
+                        margin: EdgeInsets.all(20),
+                        behavior: SnackBarBehavior.floating,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(15),
+                        ),
+                      ),
+                    );
+                  },
                   child: Text('Registrasi'),
-                  onPressed: () {},
                 ),
               ),
               TextButton(
@@ -152,7 +174,13 @@ class _HomePageState extends State<HomePage> {
                 ),
               ),
               TextButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (context) => LoginPage(),
+                    ),
+                  );
+                },
                 child: Text(
                   'Login!',
                   style: TextStyle(color: Color.fromARGB(255, 33, 44, 243)),

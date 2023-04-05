@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
-
-void main() {
-  runApp(DesaMerdeka());
-}
+import 'Desa/login.dart';
 
 class DesaMerdeka extends StatelessWidget {
   const DesaMerdeka({super.key});

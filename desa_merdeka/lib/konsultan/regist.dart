@@ -1,11 +1,8 @@
 import 'package:flutter/material.dart';
+import 'login_konsul.dart';
 
-void main() {
-  runApp(MyApp());
-}
-
-class MyApp extends StatelessWidget {
-  MyApp({super.key});
+class Registrasi extends StatelessWidget {
+  Registrasi({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -136,6 +133,11 @@ class _HomePageState extends State<HomePage> {
           ),
           ElevatedButton(
             onPressed: () {
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (context) => Login(),
+                ),
+              );
               print("LOGIN DENGAN : EMAIL (${emailC}) & PASSWORD (${passC})");
             },
             child: Text("LOGIN"),
