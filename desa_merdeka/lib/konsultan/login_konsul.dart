@@ -1,11 +1,9 @@
+import 'package:desa_merdeka/konsultan/chat.dart';
 import 'package:flutter/material.dart';
+import 'regist.dart';
 
-void main() {
-  runApp(MyApp());
-}
-
-class MyApp extends StatelessWidget {
-  MyApp({super.key});
+class Login extends StatelessWidget {
+  Login({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -104,7 +102,16 @@ class _HomePageState extends State<HomePage> {
                       minimumSize: const Size.fromHeight(50),
                       backgroundColor: Colors.red),
                   child: Text('Login'),
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) {
+                          return ChatPage();
+                        },
+                      ),
+                    );
+                  },
                 ),
               ),
               TextButton(
@@ -115,7 +122,13 @@ class _HomePageState extends State<HomePage> {
                 ),
               ),
               TextButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (context) => Registrasi(),
+                    ),
+                  );
+                },
                 child: Text(
                   'Registrasi!',
                   style: TextStyle(color: Color.fromARGB(255, 33, 44, 243)),

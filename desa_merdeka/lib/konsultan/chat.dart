@@ -18,12 +18,8 @@ String randomString() {
   return base64UrlEncode(values);
 }
 
-void main() {
-  runApp(const MyApp());
-}
-
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class ChatPage extends StatelessWidget {
+  const ChatPage({super.key});
 
   @override
   Widget build(BuildContext context) => const MaterialApp(
