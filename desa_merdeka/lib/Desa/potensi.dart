@@ -1,12 +1,8 @@
 import 'package:desa_merdeka/home.dart';
 import 'package:flutter/material.dart';
 
-void main() {
-  runApp(DesaMerdeka());
-}
-
-class DesaMerdeka extends StatelessWidget {
-  const DesaMerdeka({super.key});
+class PagePotensi extends StatelessWidget {
+  const PagePotensi({super.key});
 
   @override
   Widget build(BuildContext context) {

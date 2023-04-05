@@ -1,3 +1,4 @@
+import 'package:desa_merdeka/Desa/potensi.dart';
 import 'package:flutter/material.dart';
 import 'Desa/login.dart';
 
@@ -72,11 +73,31 @@ class HomePage extends StatelessWidget {
                       spacing: 3,
                       alignment: WrapAlignment.center,
                       children: [
-                        Menu(menu: "Profil desa", icon: Icons.home),
-                        Menu(menu: "Potensidesa", icon: Icons.home),
-                        Menu(menu: "Konsultasi", icon: Icons.home),
-                        Menu(menu: "Pelatihan", icon: Icons.home),
-                        Menu(menu: "Kerja sama", icon: Icons.home),
+                        Menu(
+                          menu: "Profil desa",
+                          icon: Icons.home,
+                          page: () => PotensiDesa(),
+                        ),
+                        Menu(
+                          menu: "Potensi desa",
+                          icon: Icons.bar_chart,
+                          page: () => PotensiDesa(),
+                        ),
+                        Menu(
+                          menu: "Konsultasi",
+                          icon: Icons.chat,
+                          page: () => PotensiDesa(),
+                        ),
+                        Menu(
+                          menu: "Pelatihan",
+                          icon: Icons.menu_book_rounded,
+                          page: () => PotensiDesa(),
+                        ),
+                        Menu(
+                          menu: "Kerja sama",
+                          icon: Icons.handshake,
+                          page: () => PotensiDesa(),
+                        ),
                       ],
                     ),
                   ),
@@ -87,15 +108,21 @@ class HomePage extends StatelessWidget {
                       color: Colors.grey[350],
                     ),
                     child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(
-                          textAlign: TextAlign.start,
-                          "BERITA",
+                        Padding(
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: 10, vertical: 10),
+                          child: Text(
+                            style: TextStyle(
+                                fontWeight: FontWeight.bold, fontSize: 18),
+                            "BERITA",
+                          ),
                         ),
                         ListView(
                           physics: NeverScrollableScrollPhysics(),
                           shrinkWrap: true,
-                          padding: EdgeInsets.only(top: 20),
+                          padding: EdgeInsets.only(top: 5),
                           children: [
                             Berita("Berita 1", "contoh deskripsi"),
                             Berita("Berita 2", "contoh deskripsi"),
@@ -121,32 +148,46 @@ class HomePage extends StatelessWidget {
 }
 
 class Menu extends StatelessWidget {
-  Menu({super.key, required this.menu, required this.icon});
+  Menu({super.key, required this.menu, required this.icon, required this.page});
   String menu;
   IconData icon;
+  Widget Function() page;
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: EdgeInsets.all(7),
-      width: 80,
-      height: 80,
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(60),
-      ),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Icon(icon),
-          Center(
-            child: Text(
-              menu,
-              overflow: TextOverflow.ellipsis,
-              maxLines: 2,
-            ),
+    return GestureDetector(
+      onTap: () {
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(
+            builder: (context) {
+              return page();
+            },
           ),
-        ],
+        );
+      },
+      child: Container(
+        margin: EdgeInsets.all(7),
+        width: 80,
+        height: 80,
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(60),
+        ),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Icon(icon),
+            Center(
+              child: Text(
+                menu,
+                overflow: TextOverflow.ellipsis,
+                maxLines: 2,
+                style: TextStyle(fontSize: 11, fontWeight: FontWeight.w600),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
