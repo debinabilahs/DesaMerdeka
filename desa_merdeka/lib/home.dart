@@ -117,13 +117,13 @@ class HomePage extends StatelessWidget {
                           shrinkWrap: true,
                           padding: EdgeInsets.only(top: 20),
                           children: [
-                            Berita("Berita 1"),
-                            Berita("Berita 2"),
-                            Berita("Berita 3"),
-                            Berita("Berita 4"),
-                            Berita("Berita 5"),
-                            Berita("Berita 6"),
-                            Berita("Berita 7"),
+                            Berita("Berita 1", "contoh deskripsi"),
+                            Berita("Berita 2", "contoh deskripsi"),
+                            Berita("Berita 3", "contoh deskripsi"),
+                            Berita("Berita 4", "contoh deskripsi"),
+                            Berita("Berita 5", "contoh deskripsi"),
+                            Berita("Berita 6", "contoh deskripsi"),
+                            Berita("Berita 7", "contoh deskripsi"),
                           ],
                         ),
                       ],
@@ -141,9 +141,10 @@ class HomePage extends StatelessWidget {
 }
 
 class Berita extends StatelessWidget {
-  Berita(this.text);
+  Berita(this.judul, this.desc);
 
-  String text;
+  String judul;
+  String desc;
 
   @override
   Widget build(BuildContext context) {
@@ -157,10 +158,31 @@ class Berita extends StatelessWidget {
             color: Colors.grey,
           ),
           Container(
+            padding: EdgeInsets.only(top: 7, left: 5, right: 5),
             height: 75,
             width: 225,
             color: Colors.white,
-            child: Text(text),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  judul,
+                  style: TextStyle(
+                    fontWeight: FontWeight.w600,
+                    fontSize: 14,
+                  ),
+                ),
+                Divider(
+                  color: Colors.black,
+                ),
+                Text(
+                  desc,
+                  style: TextStyle(
+                    fontSize: 11,
+                  ),
+                ),
+              ],
+            ),
           ),
         ],
       ),
