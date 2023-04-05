@@ -38,9 +38,21 @@ class PotensiDesa extends StatelessWidget {
       body: ListView(
         children: [
           Container(
+            margin: EdgeInsets.symmetric(horizontal: 30),
+            padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
             child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text("Pilih Potensi Umum Desa"),
+                Text(
+                  "Pilih Potensi Umum Desa",
+                  style: TextStyle(
+                    fontSize: 24,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                SizedBox(
+                  height: 20,
+                ),
                 Text("Pilih salah satu"),
               ],
             ),
@@ -51,6 +63,13 @@ class PotensiDesa extends StatelessWidget {
           Potensi(potensi: "Peternakan", value: false),
           Potensi(potensi: "Wisata", value: false),
           Potensi(potensi: "Perikanan", value: false),
+          Container(
+            padding: EdgeInsets.symmetric(horizontal: 120, vertical: 10),
+            child: ElevatedButton(
+              onPressed: () {},
+              child: Text("Input"),
+            ),
+          )
         ],
       ),
     );
@@ -79,9 +98,9 @@ class Potensi extends StatelessWidget {
                 fillColor: MaterialStateProperty.resolveWith<Color>(
                     (Set<MaterialState> states) {
                   if (states.contains(MaterialState.disabled)) {
-                    return Colors.orange.withOpacity(.32);
+                    return Colors.black.withOpacity(.32);
                   }
-                  return Colors.orange;
+                  return Colors.black;
                 })),
             Text(potensi),
           ],

@@ -67,37 +67,17 @@ class HomePage extends StatelessWidget {
                     decoration: BoxDecoration(
                       color: Colors.grey[350],
                     ),
-                    child: GridView.builder(
-                      padding: EdgeInsets.all(10),
-                      shrinkWrap: true,
-                      physics: NeverScrollableScrollPhysics(),
-                      itemCount: 5,
-                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                        crossAxisCount: 3,
-                        childAspectRatio: 1.0,
-                      ),
-                      itemBuilder: (context, index) => Container(
-                        margin: EdgeInsets.all(7),
-                        width: 120,
-                        height: 120,
-                        decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.circular(60),
-                        ),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Icon(Icons.home),
-                            Center(
-                              child: Text(
-                                "home",
-                                overflow: TextOverflow.ellipsis,
-                                maxLines: 2,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
+                    child: Wrap(
+                      runSpacing: 2,
+                      spacing: 3,
+                      alignment: WrapAlignment.center,
+                      children: [
+                        Menu(menu: "Profil desa", icon: Icons.home),
+                        Menu(menu: "Potensidesa", icon: Icons.home),
+                        Menu(menu: "Konsultasi", icon: Icons.home),
+                        Menu(menu: "Pelatihan", icon: Icons.home),
+                        Menu(menu: "Kerja sama", icon: Icons.home),
+                      ],
                     ),
                   ),
                   SizedBox(height: 20),
@@ -137,6 +117,38 @@ class HomePage extends StatelessWidget {
       ),
     );
     ;
+  }
+}
+
+class Menu extends StatelessWidget {
+  Menu({super.key, required this.menu, required this.icon});
+  String menu;
+  IconData icon;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      margin: EdgeInsets.all(7),
+      width: 80,
+      height: 80,
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(60),
+      ),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Icon(icon),
+          Center(
+            child: Text(
+              menu,
+              overflow: TextOverflow.ellipsis,
+              maxLines: 2,
+            ),
+          ),
+        ],
+      ),
+    );
   }
 }
 
