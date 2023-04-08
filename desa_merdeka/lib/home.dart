@@ -1,3 +1,4 @@
+import 'package:desa_merdeka/Desa/konsultan.dart';
 import 'package:desa_merdeka/Desa/potensi.dart';
 import 'package:flutter/material.dart';
 import 'Desa/login.dart';
@@ -86,7 +87,7 @@ class HomePage extends StatelessWidget {
                         Menu(
                           menu: "Konsultasi",
                           icon: Icons.chat,
-                          page: () => PotensiDesa(),
+                          page: () => Konsultasi(),
                         ),
                         Menu(
                           menu: "Pelatihan",
