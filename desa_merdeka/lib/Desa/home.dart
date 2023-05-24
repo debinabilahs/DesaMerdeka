@@ -1,7 +1,8 @@
 import 'package:desa_merdeka/Desa/konsultan.dart';
+import 'package:desa_merdeka/Desa/pelatihan.dart';
 import 'package:desa_merdeka/Desa/potensi.dart';
 import 'package:flutter/material.dart';
-import 'Desa/login.dart';
+import 'login.dart';
 
 class DesaMerdeka extends StatelessWidget {
   const DesaMerdeka({super.key});
@@ -22,7 +23,7 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Color.fromARGB(255, 210, 0, 26),
+        backgroundColor: Colors.green.shade800,
         title: Text("Desa Merdeka"),
         actions: [
           Padding(
@@ -43,7 +44,7 @@ class HomePage extends StatelessWidget {
                 children: [
                   Container(
                     decoration: BoxDecoration(
-                      color: Color.fromARGB(255, 210, 0, 26),
+                      color: Colors.grey.shade700,
                       borderRadius: BorderRadius.only(
                         topLeft: Radius.circular(15),
                         topRight: Radius.circular(15),
@@ -92,7 +93,7 @@ class HomePage extends StatelessWidget {
                         Menu(
                           menu: "Pelatihan",
                           icon: Icons.menu_book_rounded,
-                          page: () => PotensiDesa(),
+                          page: () => PagePelatihanDesa(),
                         ),
                         Menu(
                           menu: "Kerja sama",

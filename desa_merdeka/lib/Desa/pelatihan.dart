@@ -2,12 +2,20 @@ import 'dart:collection';
 
 import 'package:flutter/material.dart';
 
-void main() {
-  runApp(MyApp());
+class PagePelatihan extends StatelessWidget {
+  const PagePelatihan({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: PagePelatihanDesa(),
+    );
+  }
 }
 
-class MyApp extends StatelessWidget {
-  MyApp({Key? key}) : super(key: key);
+class PagePelatihanDesa extends StatelessWidget {
+  PagePelatihanDesa({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

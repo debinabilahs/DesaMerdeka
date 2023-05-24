@@ -1,34 +1,41 @@
 {
-    // Use IntelliSense to learn about possible attributes.
-    // Hover to view descriptions of existing attributes.
-    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
-    "version": "0.2.0",
-    "configurations": [
-        {
-            "name": "Dart",
-            "type": "dart",
-            "request": "launch",
-            "program": "lib/konsultan/konsultan.dart",
-        },
-        {
-            "name": "desa_merdeka",
-            "cwd": "desa_merdeka",
-            "request": "launch",
-            "type": "dart"
-        },
-        {
-            "name": "desa_merdeka (profile mode)",
-            "cwd": "desa_merdeka",
-            "request": "launch",
-            "type": "dart",
-            "flutterMode": "profile"
-        },
-        {
-            "name": "desa_merdeka (release mode)",
-            "cwd": "desa_merdeka",
-            "request": "launch",
-            "type": "dart",
-            "flutterMode": "release"
-        }
-    ]
+  // Use IntelliSense to learn about possible attributes.
+  // Hover to view descriptions of existing attributes.
+  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Dart",
+      "type": "dart",
+      "request": "launch",
+      "program": "lib/konsultan/konsultan.dart"
+    },
+    {
+      "name": "desa_merdeka",
+      "cwd": "desa_merdeka",
+      "request": "launch",
+      "type": "dart"
+    },
+    {
+      "name": "desa_merdeka (profile mode)",
+      "cwd": "desa_merdeka",
+      "request": "launch",
+      "type": "dart",
+      "flutterMode": "profile"
+    },
+    {
+      "name": "desa_merdeka (release mode)",
+      "cwd": "desa_merdeka",
+      "request": "launch",
+      "type": "dart",
+      "flutterMode": "release"
+    },
+    {
+      "name": "Flutter (lib\\main.dart)",
+      "type": "dart",
+      "request": "launch",
+      "cwd": "desa_merdeka",
+      "program": "lib\\main.dart"
+    }
+  ]
 }
