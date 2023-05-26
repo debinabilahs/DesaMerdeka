@@ -35,10 +35,8 @@ class _HomePageState extends State<HomePage> {
           title: Text('DESA MERDEKA'),
           centerTitle: false,
         ),
-        body: SingleChildScrollView(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisAlignment: MainAxisAlignment.center,
+        body: ListView(
+          padding: EdgeInsets.all(20),
             children: <Widget>[
               Container(
                   width: 100,
@@ -137,7 +135,6 @@ class _HomePageState extends State<HomePage> {
             ],
           ),
         ),
-      ),
     );
   }
 }

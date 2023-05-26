@@ -30,7 +30,7 @@ class _HomePageState extends State<HomePage> {
       backgroundColor: Colors.grey[400],
       appBar: AppBar(
         title: Text("DESA MERDEKA"),
-        backgroundColor: Colors.red,
+        backgroundColor: Colors.green.shade800,
       ),
       body: ListView(
         padding: EdgeInsets.all(20),
@@ -44,10 +44,11 @@ class _HomePageState extends State<HomePage> {
           ),
           SizedBox(height: 10),
           Image.asset(
-            'images/DesaMerdeka.png',
+            'images/DesaMerdeka.jpg',
             height: 100,
             width: 100,
           ),
+          SizedBox(height: 15),
           TextField(
             controller: emailC,
             autocorrect: false,
@@ -142,7 +143,7 @@ class _HomePageState extends State<HomePage> {
             },
             child: Text("LOGIN"),
             style: ElevatedButton.styleFrom(
-              primary: Colors.red[500],
+              primary: Colors.green.shade800,
               padding: EdgeInsets.symmetric(horizontal: 30, vertical: 20),
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(5),
@@ -152,14 +153,14 @@ class _HomePageState extends State<HomePage> {
           Padding(
             padding: const EdgeInsets.all(10),
             child: Text(
-              'Anda belum memilik akun?',
+              'Anda sudah memiliki akun?',
               textAlign: TextAlign.center,
             ),
           ),
           TextButton(
             onPressed: () {},
             child: Text(
-              ' Registrasi!',
+              'Login!',
               style: TextStyle(color: Colors.black),
             ),
           ),

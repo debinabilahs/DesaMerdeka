@@ -62,8 +62,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     width: 2,
                   ),
                   CircleAvatar(
-                    backgroundImage: NetworkImage(
-                        "<https://randomuser.me/api/portraits/men>"),
+                    backgroundImage: AssetImage("images/DesaMerdeka.png"),
                     maxRadius: 20,
                   ),
                   SizedBox(

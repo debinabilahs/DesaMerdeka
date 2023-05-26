@@ -1,3 +1,4 @@
+import 'package:desa_merdeka/konsultan/profile_konsultan.dart';
 import 'package:flutter/material.dart';
 import 'login_konsul.dart';
 
@@ -11,7 +12,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Login(),
+      home: UserProfilePage(),
     );
   }
 }
