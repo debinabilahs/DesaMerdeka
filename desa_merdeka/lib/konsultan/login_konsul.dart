@@ -1,4 +1,4 @@
-import 'package:desa_merdeka/konsultan/chat.dart';
+import 'package:desa_merdeka/konsultan/profile_konsultan.dart';
 import 'package:flutter/material.dart';
 import 'regist.dart';
 
@@ -22,6 +22,9 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   bool isHidden = true;
+
+  final String = "Siap Login";
+
   TextEditingController emailC = TextEditingController();
   TextEditingController passC = TextEditingController();
 
@@ -37,104 +40,104 @@ class _HomePageState extends State<HomePage> {
         ),
         body: ListView(
           padding: EdgeInsets.all(20),
-            children: <Widget>[
-              Container(
-                  width: 100,
-                  height: 100,
-                  padding: EdgeInsets.all(5),
-                  child: Image.asset("images/DesaMerdeka.jpg")),
-              Container(
-                margin: EdgeInsets.all(10),
-                decoration: BoxDecoration(color: Colors.white),
-                child: TextField(
-                  controller: emailC,
-                  autocorrect: false,
-                  keyboardType: TextInputType.emailAddress,
-                  textInputAction: TextInputAction.next,
-                  obscureText: true,
-                  decoration: InputDecoration(
-                    contentPadding:
-                        EdgeInsets.symmetric(horizontal: 30, vertical: 20),
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(0),
-                    ),
-                    labelText: 'Masukan Email anda',
+          children: <Widget>[
+            Container(
+                width: 100,
+                height: 100,
+                padding: EdgeInsets.all(5),
+                child: Image.asset("images/DesaMerdeka.jpg")),
+            Container(
+              margin: EdgeInsets.all(10),
+              decoration: BoxDecoration(color: Colors.white),
+              child: TextField(
+                controller: emailC,
+                autocorrect: false,
+                keyboardType: TextInputType.emailAddress,
+                textInputAction: TextInputAction.next,
+                obscureText: true,
+                decoration: InputDecoration(
+                  contentPadding:
+                      EdgeInsets.symmetric(horizontal: 30, vertical: 20),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(0),
+                  ),
+                  labelText: 'Masukan Email anda',
+                ),
+              ),
+            ),
+            SizedBox(height: 20),
+            Container(
+              margin: EdgeInsets.all(10),
+              decoration: BoxDecoration(color: Colors.white),
+              child: TextField(
+                controller: passC,
+                autocorrect: false,
+                obscureText: isHidden,
+                textInputAction: TextInputAction.done,
+                decoration: InputDecoration(
+                  contentPadding:
+                      EdgeInsets.symmetric(horizontal: 30, vertical: 20),
+                  labelText: " Masukan Password",
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(0),
+                  ),
+                  suffixIcon: IconButton(
+                    onPressed: () {
+                      if (isHidden == true) {
+                        isHidden = false;
+                      } else {
+                        isHidden = true;
+                      }
+                      setState(() {});
+                    },
+                    icon: Icon(Icons.remove_red_eye),
                   ),
                 ),
               ),
-              SizedBox(height: 20),
-              Container(
-                margin: EdgeInsets.all(10),
-                decoration: BoxDecoration(color: Colors.white),
-                child: TextField(
-                  controller: passC,
-                  autocorrect: false,
-                  obscureText: isHidden,
-                  textInputAction: TextInputAction.done,
-                  decoration: InputDecoration(
-                    contentPadding:
-                        EdgeInsets.symmetric(horizontal: 30, vertical: 20),
-                    labelText: " Masukan Password",
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(0),
-                    ),
-                    suffixIcon: IconButton(
-                      onPressed: () {
-                        if (isHidden == true) {
-                          isHidden = false;
-                        } else {
-                          isHidden = true;
-                        }
-                        setState(() {});
-                      },
-                      icon: Icon(Icons.remove_red_eye),
-                    ),
-                  ),
-                ),
-              ),
-              Container(
-                height: 80,
-                padding: const EdgeInsets.all(20),
-                child: ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                      minimumSize: const Size.fromHeight(50),
-                      backgroundColor: Colors.green.shade800),
-                  child: Text('Login'),
-                  onPressed: () {
-                    Navigator.pushReplacement(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) {
-                          return ChatPage();
-                        },
-                      ),
-                    );
-                  },
-                ),
-              ),
-              TextButton(
-                onPressed: () {},
-                child: Text(
-                  'Belum mempunyai akun?',
-                  style: TextStyle(color: Colors.black),
-                ),
-              ),
-              TextButton(
+            ),
+            Container(
+              height: 80,
+              padding: const EdgeInsets.all(20),
+              child: ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                    minimumSize: const Size.fromHeight(50),
+                    backgroundColor: Colors.green.shade800),
+                child: Text('Login'),
                 onPressed: () {
-                  Navigator.of(context).push(
+                  Navigator.pushReplacement(
+                    context,
                     MaterialPageRoute(
-                      builder: (context) => Registrasi(),
+                      builder: (context) {
+                        return UserProfilePage();
+                      },
                     ),
                   );
                 },
-                child: Text(
-                  'Registrasi!',
-                  style: TextStyle(color: Color.fromARGB(255, 33, 44, 243)),
-                ),
               ),
-            ],
-          ),
+            ),
+            TextButton(
+              onPressed: () {},
+              child: Text(
+                'Belum mempunyai akun?',
+                style: TextStyle(color: Colors.black),
+              ),
+            ),
+            TextButton(
+              onPressed: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) => Registrasi(),
+                  ),
+                );
+              },
+              child: Text(
+                'Registrasi!',
+                style: TextStyle(color: Color.fromARGB(255, 33, 44, 243)),
+              ),
+            ),
+          ],
         ),
+      ),
     );
   }
 }

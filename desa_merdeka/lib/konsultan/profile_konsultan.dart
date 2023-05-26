@@ -1,3 +1,4 @@
+import 'package:desa_merdeka/konsultan/chat.dart';
 import 'package:flutter/material.dart';
 
 class profile extends StatefulWidget {
@@ -25,7 +26,7 @@ class UserProfilePage extends StatefulWidget {
 class _UserProfilePageState extends State<UserProfilePage> {
   final String _fullName = "Hendery Wong";
 
-  final String _status = "Karyawan Magang";
+  final String _status = "Konsultan";
 
   final String _bio =
       "lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incidid";
@@ -171,13 +172,17 @@ class _UserProfilePageState extends State<UserProfilePage> {
                 decoration: BoxDecoration(
                   border: Border.all(),
                 ),
-                child: Center(
-                  child: Padding(
-                    padding: EdgeInsets.all(10.0),
-                    child: Text(
-                      "MESSAGE",
-                      style: TextStyle(fontWeight: FontWeight.w600),
-                    ),
+                child: TextButton(
+                  onPressed: () {
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (context) => ChatPage(),
+                      ),
+                    );
+                  },
+                  child: Text(
+                    'Message',
+                    style: TextStyle(color: Color.fromARGB(255, 33, 44, 243)),
                   ),
                 ),
               ),
