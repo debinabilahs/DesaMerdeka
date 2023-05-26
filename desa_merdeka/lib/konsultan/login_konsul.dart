@@ -31,7 +31,7 @@ class _HomePageState extends State<HomePage> {
       home: Scaffold(
         backgroundColor: Colors.grey[400],
         appBar: AppBar(
-          backgroundColor: Colors.red,
+          backgroundColor: Colors.green.shade800,
           title: Text('DESA MERDEKA'),
           centerTitle: false,
         ),
@@ -44,7 +44,7 @@ class _HomePageState extends State<HomePage> {
                   width: 100,
                   height: 100,
                   padding: EdgeInsets.all(5),
-                  child: Image.asset("images/DesaMerdeka.png")),
+                  child: Image.asset("images/DesaMerdeka.jpg")),
               Container(
                 margin: EdgeInsets.all(10),
                 decoration: BoxDecoration(color: Colors.white),
@@ -100,7 +100,7 @@ class _HomePageState extends State<HomePage> {
                 child: ElevatedButton(
                   style: ElevatedButton.styleFrom(
                       minimumSize: const Size.fromHeight(50),
-                      backgroundColor: Colors.red),
+                      backgroundColor: Colors.green.shade800),
                   child: Text('Login'),
                   onPressed: () {
                     Navigator.pushReplacement(
