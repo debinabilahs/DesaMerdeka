@@ -65,7 +65,7 @@ class LoginPage extends StatelessWidget {
                       context,
                       MaterialPageRoute(
                         builder: (context) {
-                          return DesaMerdeka();
+                          return MainPage();
                         },
                       ),
                     );
