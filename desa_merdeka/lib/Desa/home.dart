@@ -4,6 +4,7 @@ import 'package:desa_merdeka/Desa/potensi.dart';
 import 'package:flutter/material.dart';
 import 'account_page.dart';
 import 'message_page.dart';
+import 'profile_desa.dart';
 import 'notif_page.dart';
 
 class MainPage extends StatefulWidget {
@@ -60,7 +61,7 @@ class _MainPageState extends State<MainPage> {
             icon: currentPage == 0
                 ? Icon(
                     Icons.home,
-                    color: Colors.black,
+                    color: Color.fromARGB(255, 222, 252, 153),
                   )
                 : Icon(
                     Icons.home_outlined,
@@ -72,7 +73,7 @@ class _MainPageState extends State<MainPage> {
             icon: currentPage == 1
                 ? Icon(
                     Icons.message,
-                    color: Colors.black,
+                    color: Color.fromARGB(255, 222, 252, 153),
                   )
                 : Icon(
                     Icons.message_outlined,
@@ -84,7 +85,7 @@ class _MainPageState extends State<MainPage> {
             icon: currentPage == 2
                 ? Icon(
                     Icons.notifications,
-                    color: Colors.black,
+                    color: Color.fromARGB(255, 222, 252, 153),
                   )
                 : Icon(
                     Icons.notifications_outlined,
@@ -96,7 +97,7 @@ class _MainPageState extends State<MainPage> {
             icon: currentPage == 3
                 ? Icon(
                     Icons.person,
-                    color: Colors.black,
+                    color: Color.fromARGB(255, 222, 252, 153),
                   )
                 : Icon(
                     Icons.person_outline,
@@ -160,7 +161,7 @@ class HomePage extends StatelessWidget {
                         Menu(
                           menu: "Profil desa",
                           icon: Icons.home,
-                          page: () => PotensiDesa(),
+                          page: () => ProfilDesa(),
                         ),
                         Menu(
                           menu: "Potensi desa",

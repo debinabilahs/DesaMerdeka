@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 
 class PagePelatihan extends StatelessWidget {
@@ -7,7 +6,7 @@ class PagePelatihan extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey,
+      backgroundColor: Colors.white,
       appBar: AppBar(
         leading: BackButton(
           onPressed: () =>
@@ -18,6 +17,7 @@ class PagePelatihan extends StatelessWidget {
         centerTitle: false,
       ),
       body: SingleChildScrollView(
+        physics: BouncingScrollPhysics(),
         child: Center(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,

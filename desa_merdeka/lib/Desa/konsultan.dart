@@ -13,10 +13,11 @@ class Konsultasi extends StatelessWidget {
               Navigator.of(context, rootNavigator: true).pop(context),
         ),
         backgroundColor: Colors.green.shade800,
-        title: Text('DESA MERDEKA'),
+        title: Text('Desa Merdeka'),
         centerTitle: false,
       ),
       body: SingleChildScrollView(
+        physics: BouncingScrollPhysics(),
         child: Center(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
