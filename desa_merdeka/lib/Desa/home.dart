@@ -4,7 +4,6 @@ import 'package:desa_merdeka/Desa/potensi.dart';
 import 'package:flutter/material.dart';
 import 'login.dart';
 import 'account_page.dart';
-import 'login.dart';
 import 'message_page.dart';
 import 'notif_page.dart';
 
@@ -244,7 +243,6 @@ class HomePage extends StatelessWidget {
         ],
       ),
     );
-    ;
   }
 }
 

@@ -1,32 +1,64 @@
+import 'dart:convert';
+import 'package:desa_merdeka/Desa/home.dart';
 import 'package:desa_merdeka/konsultan/profile_konsultan.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'regist.dart';
+import 'package:http/http.dart' as http;
 
-class Login extends StatelessWidget {
+class Login extends StatefulWidget {
   Login({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      home: HomePage(),
-    );
-  }
+  State<Login> createState() => _LoginState();
 }
 
-class HomePage extends StatefulWidget {
-  HomePage({super.key});
-
-  @override
-  State<HomePage> createState() => _HomePageState();
-}
-
-class _HomePageState extends State<HomePage> {
+class _LoginState extends State<Login> {
   bool isHidden = true;
 
-  final String = "Siap Login";
+  String? email, password, status;
 
-  TextEditingController emailC = TextEditingController();
-  TextEditingController passC = TextEditingController();
+  TextEditingController emailC = new TextEditingController();
+  TextEditingController passC = new TextEditingController();
+
+  set alert(String alert) {}
+
+  void ProsesLogin() async {
+    final response = await http.post(
+        Uri.parse("http://192.168.104.93/login/login.php"),
+        body: {"email": emailC.text, "password": passC.text});
+    var dataUser = jsonDecode(response.body);
+    print(dataUser);
+
+    if (dataUser.length < 1) {
+      setState(() {
+        alert = "Data User Tidak ada";
+      });
+    } else {
+      setState(() {
+        email = dataUser[0]["email"];
+        password = dataUser[0]["password"];
+        status = dataUser[0]["status"];
+      });
+      if (status == "konsultan") {
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(
+            builder: (context) => profile(email: email),
+          ),
+        );
+        
+      } else if (status == "desa") {
+        Navigator.pushReplacement(
+            context,
+            MaterialPageRoute(
+              builder: (context) => DesaMerdeka(
+                email: email,
+              ),
+            ));
+      }
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -54,7 +86,6 @@ class _HomePageState extends State<HomePage> {
                 autocorrect: false,
                 keyboardType: TextInputType.emailAddress,
                 textInputAction: TextInputAction.next,
-                obscureText: true,
                 decoration: InputDecoration(
                   contentPadding:
                       EdgeInsets.symmetric(horizontal: 30, vertical: 20),
@@ -104,14 +135,15 @@ class _HomePageState extends State<HomePage> {
                     backgroundColor: Colors.green.shade800),
                 child: Text('Login'),
                 onPressed: () {
-                  Navigator.pushReplacement(
+                  ProsesLogin();
+                  /* Navigator.pushReplacement(
                     context,
                     MaterialPageRoute(
                       builder: (context) {
                         return UserProfilePage();
                       },
                     ),
-                  );
+                  ); */
                 },
               ),
             ),
@@ -139,5 +171,12 @@ class _HomePageState extends State<HomePage> {
         ),
       ),
     );
+  }
+
+  @override
+  Future<void> debugFillProperties(
+      DiagnosticPropertiesBuilder properties) async {
+    super.debugFillProperties(properties);
+    properties.add(StringProperty('email', email));
   }
 }

@@ -2,6 +2,8 @@ import 'package:desa_merdeka/konsultan/chat.dart';
 import 'package:flutter/material.dart';
 
 class profile extends StatefulWidget {
+  final String? email;
+  profile({this.email});
   @override
   State<profile> createState() => _profileState();
 }
