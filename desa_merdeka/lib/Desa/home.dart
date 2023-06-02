@@ -8,7 +8,7 @@ import 'profile_desa.dart';
 import 'notif_page.dart';
 
 class MainPage extends StatefulWidget {
-  const MainPage({super.key});
+  const MainPage({super.key, String? email});
 
   @override
   State<MainPage> createState() => _MainPageState();

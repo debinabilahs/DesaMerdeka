@@ -25,7 +25,7 @@ class _LoginState extends State<Login> {
 
   void ProsesLogin() async {
     final response = await http.post(
-        Uri.parse("http://192.168.104.93/login/login.php"),
+        Uri.parse("http://192.168.56.1/login/login1.php"),
         body: {"email": emailC.text, "password": passC.text});
     var dataUser = jsonDecode(response.body);
     print(dataUser);
@@ -47,12 +47,11 @@ class _LoginState extends State<Login> {
             builder: (context) => profile(email: email),
           ),
         );
-        
       } else if (status == "desa") {
         Navigator.pushReplacement(
             context,
             MaterialPageRoute(
-              builder: (context) => DesaMerdeka(
+              builder: (context) => MainPage(
                 email: email,
               ),
             ));
