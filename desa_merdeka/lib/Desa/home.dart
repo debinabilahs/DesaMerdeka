@@ -2,24 +2,10 @@ import 'package:desa_merdeka/Desa/konsultan.dart';
 import 'package:desa_merdeka/Desa/pelatihan.dart';
 import 'package:desa_merdeka/Desa/potensi.dart';
 import 'package:flutter/material.dart';
-import 'login.dart';
 import 'account_page.dart';
 import 'message_page.dart';
+import 'profile_desa.dart';
 import 'notif_page.dart';
-
-class DesaMerdeka extends StatelessWidget {
-  const DesaMerdeka({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Desa Merdeka',
-      home: const MainPage(),
-    );
-  }
-}
-
 
 class MainPage extends StatefulWidget {
   const MainPage({super.key});
@@ -40,6 +26,18 @@ class _MainPageState extends State<MainPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.green.shade800,
+        title: Text("Desa Merdeka"),
+        actions: [
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: 0, horizontal: 10),
+            child: Icon(
+              Icons.menu,
+            ),
+          ),
+        ],
+      ),
       body: IndexedStack(
         index: currentPage,
         children: screens,
@@ -63,7 +61,7 @@ class _MainPageState extends State<MainPage> {
             icon: currentPage == 0
                 ? Icon(
                     Icons.home,
-                    color: Colors.black,
+                    color: Color.fromARGB(255, 222, 252, 153),
                   )
                 : Icon(
                     Icons.home_outlined,
@@ -75,7 +73,7 @@ class _MainPageState extends State<MainPage> {
             icon: currentPage == 1
                 ? Icon(
                     Icons.message,
-                    color: Colors.black,
+                    color: Color.fromARGB(255, 222, 252, 153),
                   )
                 : Icon(
                     Icons.message_outlined,
@@ -87,7 +85,7 @@ class _MainPageState extends State<MainPage> {
             icon: currentPage == 2
                 ? Icon(
                     Icons.notifications,
-                    color: Colors.black,
+                    color: Color.fromARGB(255, 222, 252, 153),
                   )
                 : Icon(
                     Icons.notifications_outlined,
@@ -99,7 +97,7 @@ class _MainPageState extends State<MainPage> {
             icon: currentPage == 3
                 ? Icon(
                     Icons.person,
-                    color: Colors.black,
+                    color: Color.fromARGB(255, 222, 252, 153),
                   )
                 : Icon(
                     Icons.person_outline,
@@ -113,25 +111,12 @@ class _MainPageState extends State<MainPage> {
   }
 }
 
-
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.green.shade800,
-        title: Text("Desa Merdeka"),
-        actions: [
-          Padding(
-            padding: const EdgeInsets.symmetric(vertical: 0, horizontal: 10),
-            child: Icon(
-              Icons.menu,
-            ),
-          ),
-        ],
-      ),
       body: ListView(
         physics: BouncingScrollPhysics(),
         children: [
@@ -148,7 +133,7 @@ class HomePage extends StatelessWidget {
                         topRight: Radius.circular(15),
                       ),
                     ),
-                    width: 300,
+                    width: 350,
                     height: 70,
                     child: Padding(
                       padding: const EdgeInsets.all(10),
@@ -163,8 +148,8 @@ class HomePage extends StatelessWidget {
                     ),
                   ),
                   Container(
-                    width: 300,
-                    height: 200,
+                    width: 350,
+                    height: 230,
                     decoration: BoxDecoration(
                       color: Colors.grey[350],
                     ),
@@ -176,7 +161,7 @@ class HomePage extends StatelessWidget {
                         Menu(
                           menu: "Profil desa",
                           icon: Icons.home,
-                          page: () => PotensiDesa(),
+                          page: () => ProfilDesa(),
                         ),
                         Menu(
                           menu: "Potensi desa",
@@ -191,7 +176,7 @@ class HomePage extends StatelessWidget {
                         Menu(
                           menu: "Pelatihan",
                           icon: Icons.menu_book_rounded,
-                          page: () => PagePelatihanDesa(),
+                          page: () => PagePelatihan(),
                         ),
                         Menu(
                           menu: "Kerja sama",
@@ -203,7 +188,7 @@ class HomePage extends StatelessWidget {
                   ),
                   SizedBox(height: 20),
                   Container(
-                    width: 300,
+                    width: 350,
                     decoration: BoxDecoration(
                       color: Colors.grey[350],
                     ),
@@ -256,7 +241,7 @@ class Menu extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        Navigator.pushReplacement(
+        Navigator.push(
           context,
           MaterialPageRoute(
             builder: (context) {
@@ -266,9 +251,9 @@ class Menu extends StatelessWidget {
         );
       },
       child: Container(
-        margin: EdgeInsets.all(7),
-        width: 80,
-        height: 80,
+        margin: EdgeInsets.all(10),
+        width: 90,
+        height: 90,
         decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.circular(60),
@@ -312,7 +297,7 @@ class Berita extends StatelessWidget {
           Container(
             padding: EdgeInsets.only(top: 7, left: 5, right: 5),
             height: 75,
-            width: 225,
+            width: 270,
             color: Colors.white,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
