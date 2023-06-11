@@ -1,4 +1,4 @@
-import 'package:desa_merdeka/Desa/home.dart';
+import 'package:desa_merdeka/Desa/screens/home_screen.dart';
 import 'package:flutter/material.dart';
 
 class PagePotensi extends StatelessWidget {

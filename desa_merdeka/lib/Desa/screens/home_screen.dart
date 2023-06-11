@@ -1,12 +1,11 @@
 import 'package:desa_merdeka/Desa/konsultan.dart';
 import 'package:desa_merdeka/Desa/pelatihan.dart';
 import 'package:desa_merdeka/Desa/potensi.dart';
+import 'package:desa_merdeka/Desa/pages/account_page.dart';
+import 'package:desa_merdeka/Desa/pages/message_page.dart';
+import 'package:desa_merdeka/Desa/pages/notif_page.dart';
 import 'package:flutter/material.dart';
-import 'login.dart';
-import 'account_page.dart';
-import 'login.dart';
-import 'message_page.dart';
-import 'notif_page.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class DesaMerdeka extends StatelessWidget {
   const DesaMerdeka({super.key});
@@ -20,7 +19,6 @@ class DesaMerdeka extends StatelessWidget {
     );
   }
 }
-
 
 class MainPage extends StatefulWidget {
   const MainPage({super.key});
@@ -113,7 +111,6 @@ class _MainPageState extends State<MainPage> {
     );
   }
 }
-
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
