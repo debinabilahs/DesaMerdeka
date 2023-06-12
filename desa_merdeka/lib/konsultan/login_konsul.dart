@@ -25,7 +25,7 @@ class _LoginState extends State<Login> {
 
   void ProsesLogin() async {
     final response = await http.post(
-        Uri.parse("http://192.168.56.1/login/login1.php"),
+        Uri.parse("http://192.168.65.93/login/login1.php"),
         body: {"email": emailC.text, "password": passC.text});
     var dataUser = jsonDecode(response.body);
     print(dataUser);

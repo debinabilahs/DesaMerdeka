@@ -36,7 +36,7 @@ class _HomePageState extends State<HomePage> {
   Future _simpan() async {
     // ignore: unused_local_variable
     final response = await http
-        .post(Uri.parse('http://192.168.104.93/login/regist.php'), body: {
+        .post(Uri.parse('http://192.168.65.93/login/regist.php'), body: {
       "email": emailC.text,
       "password": passC.text,
       "nama": namaC.text,
@@ -44,7 +44,8 @@ class _HomePageState extends State<HomePage> {
       "no_hp": no_hpC.text,
       "status": statusC.text,
     });
-    var datauser = json.decode(response.body);
+    // ignore: unused_local_variable
+    var dataUser = json.decode(response.body);
     if (response.statusCode == 200) {
       return true;
     }
@@ -183,16 +184,18 @@ class _HomePageState extends State<HomePage> {
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(20),
                   ),
-                ),
+                ), 
                 onPressed: () {
                   if (fromkey.currentState!.validate()) {
                     _simpan().then(
                       (value) {
                         if (value) {
+                          // ignore: unused_local_variable
                           final snackBar = SnackBar(
                             content: const Text('Data berhasil di simpan'),
                           );
                         } else {
+                          // ignore: unused_label
                           content:
                           const Text('Data tidak berhasil di simpan');
                         }
@@ -213,10 +216,13 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
             TextButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.pushReplacement(
+                    context, MaterialPageRoute(builder: (context) => Login()));
+              },
               child: Text(
                 'Login!',
-                style: TextStyle(color: Colors.blue),
+                style: TextStyle(color: Color.fromARGB(255, 33, 44, 243)),
               ),
             ),
           ],

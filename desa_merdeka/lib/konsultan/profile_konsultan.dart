@@ -1,4 +1,5 @@
 import 'package:desa_merdeka/konsultan/chat.dart';
+import 'package:desa_merdeka/konsultan/login_konsul.dart';
 import 'package:flutter/material.dart';
 
 class profile extends StatefulWidget {
@@ -184,6 +185,30 @@ class _UserProfilePageState extends State<UserProfilePage> {
                   },
                   child: Text(
                     'Message',
+                    style: TextStyle(color: Color.fromARGB(255, 33, 44, 243)),
+                  ),
+                ),
+              ),
+            ),
+          ),
+          Expanded(
+            child: InkWell(
+              onTap: () => print("Logout"),
+              child: Container(
+                height: 40.0,
+                decoration: BoxDecoration(
+                  border: Border.all(),
+                ),
+                child: TextButton(
+                  onPressed: () {
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (context) => Login(),
+                      ),
+                    );
+                  },
+                  child: Text(
+                    'Logout',
                     style: TextStyle(color: Color.fromARGB(255, 33, 44, 243)),
                   ),
                 ),
