@@ -22,8 +22,19 @@ class PagePelatihanDesa extends StatelessWidget {
       home: Scaffold(
         backgroundColor: Colors.grey,
         appBar: AppBar(
+          leading: BackButton(
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => DesaMerdeka()),
+              );
+            },
+          ),
           backgroundColor: Colors.green.shade800,
-          title: Text('DESA MERDEKA'),
+          title: Text(
+            'DESA MERDEKA',
+            style: TextStyle(fontWeight: FontWeight.bold),
+          ),
           centerTitle: false,
         ),
         body: SingleChildScrollView(

@@ -9,7 +9,10 @@ class Konsultasi extends StatelessWidget {
       backgroundColor: Colors.grey,
       appBar: AppBar(
         backgroundColor: Colors.green.shade800,
-        title: Text('DESA MERDEKA'),
+        title: Text(
+          'DESA MERDEKA',
+          style: TextStyle(fontWeight: FontWeight.bold),
+        ),
         centerTitle: false,
       ),
       body: SingleChildScrollView(

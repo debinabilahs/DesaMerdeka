@@ -5,6 +5,7 @@ import 'package:desa_merdeka/Desa/pages/account_page.dart';
 import 'package:desa_merdeka/Desa/pages/message_page.dart';
 import 'package:desa_merdeka/Desa/pages/notif_page.dart';
 import 'package:desa_merdeka/Desa/profile_desa.dart';
+import 'package:desa_merdeka/Desa/reusable_widgets/reusable_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
@@ -33,7 +34,7 @@ class _MainPageState extends State<MainPage> {
   final screens = [
     HomePage(),
     MessagePage(),
-    NotifPage(),
+    // NotifPage(),
     AccountPage(),
   ];
 
@@ -41,17 +42,21 @@ class _MainPageState extends State<MainPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.green.shade800,
-        title: Text("Desa Merdeka"),
-        actions: [
-          Padding(
-            padding: const EdgeInsets.symmetric(vertical: 0, horizontal: 10),
-            child: Icon(
-              Icons.menu,
-            ),
+          backgroundColor: Colors.green.shade800,
+          leading: logoWidget("assets/images/Desa_Merdeka.png"),
+          title: Text(
+            'DESA MERDEKA',
+            style: TextStyle(fontWeight: FontWeight.bold),
+          )
+          // actions: [
+          //   Padding(
+          //     padding: const EdgeInsets.symmetric(vertical: 0, horizontal: 10),
+          //     child: Icon(
+          //       Icons.menu,
+          //     ),
+          //   ),
+          // ],
           ),
-        ],
-      ),
       body: IndexedStack(
         index: currentPage,
         children: screens,
@@ -95,18 +100,18 @@ class _MainPageState extends State<MainPage> {
                   ),
             label: "Message",
           ),
-          BottomNavigationBarItem(
-            icon: currentPage == 2
-                ? Icon(
-                    Icons.notifications,
-                    color: Color.fromARGB(255, 222, 252, 153),
-                  )
-                : Icon(
-                    Icons.notifications_outlined,
-                    color: Colors.white,
-                  ),
-            label: "Notifications",
-          ),
+          // BottomNavigationBarItem(
+          //   icon: currentPage == 2
+          //       ? Icon(
+          //           Icons.notifications,
+          //           color: Color.fromARGB(255, 222, 252, 153),
+          //         )
+          //       : Icon(
+          //           Icons.notifications_outlined,
+          //           color: Colors.white,
+          //         ),
+          //   label: "Notifications",
+          // ),
           BottomNavigationBarItem(
             icon: currentPage == 3
                 ? Icon(

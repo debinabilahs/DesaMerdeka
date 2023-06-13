@@ -21,15 +21,20 @@ class PotensiDesa extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.green.shade800,
-        title: Text("Desa Merdeka"),
-        actions: [
-          Padding(
-            padding: const EdgeInsets.symmetric(vertical: 0, horizontal: 10),
-            child: Icon(
-              Icons.menu,
-            ),
-          ),
-        ],
+        title: Text(
+          'DESA MERDEKA',
+          style: TextStyle(fontWeight: FontWeight.bold),
+        ),
+        centerTitle: false,
+
+        // actions: [
+        //   Padding(
+        //     padding: const EdgeInsets.symmetric(vertical: 0, horizontal: 10),
+        //     child: Icon(
+        //       Icons.menu,
+        //     ),
+        //   ),
+        // ],
       ),
       body: ListView(
         children: [
