@@ -22,7 +22,6 @@ class _SignUpScreenState extends State<SignUpScreen> {
       extendBodyBehindAppBar: true,
       appBar: AppBar(
         backgroundColor: Colors.green.shade800,
-        // leading: Image.asset("images/Desa_Merdeka.png"),
         // elevation: 0,
         title: const Text(
           "SIGN UP",

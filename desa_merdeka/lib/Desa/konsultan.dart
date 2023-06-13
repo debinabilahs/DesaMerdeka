@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-
 class Konsultasi extends StatelessWidget {
   Konsultasi({Key? key}) : super(key: key);
 
@@ -10,7 +9,7 @@ class Konsultasi extends StatelessWidget {
       home: Scaffold(
         backgroundColor: Colors.grey,
         appBar: AppBar(
-          backgroundColor: Colors.red,
+          backgroundColor: Colors.green.shade800,
           title: Text('DESA MERDEKA'),
           centerTitle: false,
         ),
@@ -25,7 +24,7 @@ class Konsultasi extends StatelessWidget {
                   width: 325,
                   height: 75,
                   decoration: BoxDecoration(
-                    color: Color.fromARGB(255, 134, 33, 26),
+                    color: Color.fromARGB(255, 30, 150, 50),
                     borderRadius: BorderRadius.only(
                       topLeft: Radius.circular(15),
                       topRight: Radius.circular(15),

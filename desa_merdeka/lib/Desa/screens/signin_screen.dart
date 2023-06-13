@@ -21,11 +21,12 @@ class _SignInScreenState extends State<SignInScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.green.shade800,
-        // leading: Image.asset("images/Desa_Merdeka.png"),
-        title: Text('DESA MERDEKA'),
-        centerTitle: false,
-      ),
+          backgroundColor: Colors.green.shade800,
+          leading: logoWidget("assets/images/Desa_Merdeka.png"),
+          title: Text(
+            'DESA MERDEKA',
+            style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+          )),
       body: Container(
         width: MediaQuery.of(context).size.width,
         height: MediaQuery.of(context).size.height,
