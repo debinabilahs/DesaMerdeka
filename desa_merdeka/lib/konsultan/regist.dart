@@ -36,7 +36,7 @@ class _HomePageState extends State<HomePage> {
   Future _simpan() async {
     // ignore: unused_local_variable
     final response = await http
-        .post(Uri.parse('http://192.168.65.93/login/regist.php'), body: {
+        .post(Uri.parse('http://192.168.120.93/login/regist.php'), body: {
       "email": emailC.text,
       "password": passC.text,
       "nama": namaC.text,
@@ -74,7 +74,7 @@ class _HomePageState extends State<HomePage> {
             ),
             SizedBox(height: 10),
             Image.asset(
-              'images/DesaMerdeka.jpg',
+              'images/Desa_Merdeka.png',
               height: 100,
               width: 100,
             ),
@@ -184,7 +184,7 @@ class _HomePageState extends State<HomePage> {
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(20),
                   ),
-                ), 
+                ),
                 onPressed: () {
                   if (fromkey.currentState!.validate()) {
                     _simpan().then(

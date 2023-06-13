@@ -27,7 +27,7 @@ class UserProfilePage extends StatefulWidget {
 }
 
 class _UserProfilePageState extends State<UserProfilePage> {
-  final String _fullName = "Hendery Wong";
+  final String _fullName = "Kania Isnaeni";
 
   final String _status = "Konsultan";
 
@@ -47,7 +47,7 @@ class _UserProfilePageState extends State<UserProfilePage> {
         height: 140.0,
         decoration: BoxDecoration(
           image: DecorationImage(
-            image: AssetImage('images/DesaMerdeka.png'),
+            image: AssetImage('images/DesaMerdeka.jpg'),
             fit: BoxFit.cover,
           ),
           borderRadius: BorderRadius.circular(80.0),
