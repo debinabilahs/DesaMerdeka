@@ -38,11 +38,7 @@ class PagePelatihanDesa extends StatelessWidget {
           ),
           centerTitle: false,
         ),
-        backgroundColor: Colors.green.shade800,
-        title: Text('DESA MERDEKA'),
-        centerTitle: false,
-      ),
-      body: SingleChildScrollView(
+        body: SingleChildScrollView(
         child: Center(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
@@ -60,15 +56,16 @@ class PagePelatihanDesa extends StatelessWidget {
                   ),
                 ),
                 child: Center(
-                  child: Text(
-                    "Pilih Pelatihan",
-                    style: TextStyle(
-                      fontSize: 20,
-                      color: Colors.white,
-                    ),
-                  ),
-                ),
-                Container(
+                  child: Column(
+                    children: [
+                      Text(
+                        "Pilih Pelatihan",
+                        style: TextStyle(
+                          fontSize: 20,
+                          color: Colors.white,
+                        ),
+                      ),
+                      Container(
                   margin: EdgeInsets.only(top: 20),
                   width: 325,
                   decoration: BoxDecoration(
@@ -90,26 +87,32 @@ class PagePelatihanDesa extends StatelessWidget {
                     ],
                   ),
                 ),
-                child: ListView(
-                  physics: NeverScrollableScrollPhysics(),
-                  shrinkWrap: true,
-                  children: [
-                    Pelatihan("  Pelatihan A"),
-                    Pelatihan("  Pelatihan B"),
-                    Pelatihan("  Pelatihan C"),
-                    Pelatihan("  Pelatihan D"),
-                    Pelatihan("  Pelatihan E"),
-                    Pelatihan("  Pelatihan F"),
-                    Pelatihan("  Pelatihan G"),
-                    Pelatihan("  Pelatihan H"),
-                    Pelatihan("  Pelatihan I"),
-                  ],
+                    ],
+                  ),
                 ),
+                
+                // child: ListView(
+                //   physics: NeverScrollableScrollPhysics(),
+                //   shrinkWrap: true,
+                //   children: [
+                //     Pelatihan("  Pelatihan A"),
+                //     Pelatihan("  Pelatihan B"),
+                //     Pelatihan("  Pelatihan C"),
+                //     Pelatihan("  Pelatihan D"),
+                //     Pelatihan("  Pelatihan E"),
+                //     Pelatihan("  Pelatihan F"),
+                //     Pelatihan("  Pelatihan G"),
+                //     Pelatihan("  Pelatihan H"),
+                //     Pelatihan("  Pelatihan I"),
+                //   ],
+                // ),
               ),
             ],
           ),
         ),
       ),
+      ),
+      
     );
   }
 }
