@@ -7,9 +7,11 @@ class ProfilDesa extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          leading: BackButton(
-            onPressed: () =>
-                Navigator.of(context, rootNavigator: true).pop(context),
+          leading: IconButton(
+            icon: Icon(Icons.arrow_back),
+            onPressed: () {
+              Navigator.pop(context);
+            },
           ),
           backgroundColor: Colors.green.shade800,
           title: Text('Desa Merdeka'),

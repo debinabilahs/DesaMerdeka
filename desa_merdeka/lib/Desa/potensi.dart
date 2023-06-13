@@ -1,4 +1,5 @@
 import 'package:desa_merdeka/Desa/screens/home_screen.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
 class PagePotensi extends StatelessWidget {
@@ -22,6 +23,12 @@ class PotensiDesa extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Colors.green.shade800,
         title: Text("Desa Merdeka"),
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back),
+          onPressed: () {
+            Navigator.pop(context);
+          },
+        ),
         actions: [
           Padding(
             padding: const EdgeInsets.symmetric(vertical: 0, horizontal: 10),
@@ -72,35 +79,52 @@ class PotensiDesa extends StatelessWidget {
   }
 }
 
-class Potensi extends StatelessWidget {
+class Potensi extends StatefulWidget {
   Potensi({super.key, required this.potensi, required this.value});
   bool value;
   String potensi;
+
+  @override
+  State<Potensi> createState() => _PotensiState();
+}
+
+class _PotensiState extends State<Potensi> {
+  List<String> selectedItems = [];
 
   @override
   Widget build(BuildContext context) {
     return Container(
       margin: EdgeInsets.symmetric(horizontal: 40, vertical: 8),
       height: 75,
-      child: ElevatedButton(
-        onPressed: () {},
-        style: ElevatedButton.styleFrom(
-            primary: Color.fromARGB(255, 146, 128, 128)),
-        child: Row(
-          children: [
-            Checkbox(
-                value: value,
-                onChanged: (value) {},
-                fillColor: MaterialStateProperty.resolveWith<Color>(
-                    (Set<MaterialState> states) {
-                  if (states.contains(MaterialState.disabled)) {
-                    return Colors.black.withOpacity(.32);
+      child: StreamBuilder<QuerySnapshot>(
+        stream: FirebaseFirestore.instance.collection('tb_ciri_1').snapshots(),
+        builder: (context, snapshot) {
+          if (!snapshot.hasData) {
+            return CircularProgressIndicator();
+          }
+
+          List<CheckboxListTile> checkboxes = snapshot.data!.docs.map((doc) {
+            String item = doc['kode'];
+
+            return CheckboxListTile(
+              title: Text(item),
+              value: selectedItems.contains(item),
+              onChanged: (bool? value) {
+                setState(() {
+                  if (value != null && value) {
+                    selectedItems.add(item);
+                  } else {
+                    selectedItems.remove(item);
                   }
-                  return Colors.black;
-                })),
-            Text(potensi),
-          ],
-        ),
+                });
+              },
+            );
+          }).toList();
+
+          return ListView(
+            children: checkboxes,
+          );
+        },
       ),
     );
   }
