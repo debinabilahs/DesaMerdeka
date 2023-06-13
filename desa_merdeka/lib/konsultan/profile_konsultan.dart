@@ -1,15 +1,17 @@
 import 'package:desa_merdeka/konsultan/chat.dart';
-import 'package:desa_merdeka/konsultan/login_konsul.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:desa_merdeka/konsultan/screens/signin.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
-class profile extends StatefulWidget {
+class Profile extends StatefulWidget {
   final String? email;
-  profile({this.email});
+  Profile({this.email});
   @override
-  State<profile> createState() => _profileState();
+  State<Profile> createState() => _ProfileState();
 }
 
-class _profileState extends State<profile> {
+class _ProfileState extends State<Profile> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -20,7 +22,6 @@ class _profileState extends State<profile> {
   }
 }
 
-// Nama DLL
 class UserProfilePage extends StatefulWidget {
   @override
   State<UserProfilePage> createState() => _UserProfilePageState();
@@ -28,11 +29,10 @@ class UserProfilePage extends StatefulWidget {
 
 class _UserProfilePageState extends State<UserProfilePage> {
   final String _fullName = "Kania Isnaeni";
-
   final String _status = "Konsultan";
-
   final String _bio =
       "lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incidid";
+
   Widget _buildCoverImage(Size screenSize) {
     return Container(
       height: screenSize.height / 3.0,
@@ -125,7 +125,7 @@ class _UserProfilePageState extends State<UserProfilePage> {
   Widget _buildBio(BuildContext context) {
     TextStyle bioTextStyle = TextStyle(
       fontFamily: 'Spectral',
-      fontWeight: FontWeight.w400, //try changing weight to w500 if not thin
+      fontWeight: FontWeight.w400,
       fontStyle: FontStyle.italic,
       color: Color.fromARGB(255, 89, 91, 91),
       fontSize: 16.0,
@@ -168,51 +168,38 @@ class _UserProfilePageState extends State<UserProfilePage> {
       child: Row(
         children: <Widget>[
           Expanded(
-            child: InkWell(
-              onTap: () => print("Message"),
-              child: Container(
-                height: 40.0,
-                decoration: BoxDecoration(
-                  border: Border.all(),
-                ),
-                child: TextButton(
-                  onPressed: () {
-                    Navigator.of(context).push(
-                      MaterialPageRoute(
-                        builder: (context) => ChatPage(),
-                      ),
-                    );
-                  },
-                  child: Text(
-                    'Message',
-                    style: TextStyle(color: Color.fromARGB(255, 33, 44, 243)),
+            child: ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                  minimumSize: const Size.fromHeight(50),
+                  backgroundColor: Colors.green),
+              child: Text("Message"),
+              onPressed: () {
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) {
+                      return ChatPage();
+                    },
                   ),
-                ),
-              ),
+                );
+              },
             ),
           ),
           Expanded(
-            child: InkWell(
-              onTap: () => print("Logout"),
-              child: Container(
-                height: 40.0,
-                decoration: BoxDecoration(
-                  border: Border.all(),
-                ),
-                child: TextButton(
-                  onPressed: () {
-                    Navigator.of(context).push(
-                      MaterialPageRoute(
-                        builder: (context) => Login(),
-                      ),
-                    );
-                  },
-                  child: Text(
-                    'Logout',
-                    style: TextStyle(color: Color.fromARGB(255, 33, 44, 243)),
-                  ),
-                ),
-              ),
+            child: ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                  minimumSize: const Size.fromHeight(50),
+                  backgroundColor: Colors.green),
+              child: Text("Logout"),
+              onPressed: () {
+                FirebaseAuth.instance.signOut().then((value) {
+                  print("Signed Out");
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => SignInKonsul()),
+                  );
+                });
+              },
             ),
           ),
         ],
