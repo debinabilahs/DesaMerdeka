@@ -130,6 +130,9 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final mediaQuery = MediaQuery.of(context);
+    final screenWidth = mediaQuery.size.width;
+    final screenHeight = mediaQuery.size.height;
     return Scaffold(
       body: ListView(
         physics: BouncingScrollPhysics(),
@@ -200,36 +203,60 @@ class HomePage extends StatelessWidget {
                       ],
                     ),
                   ),
-                  SizedBox(height: 20),
+                  SizedBox(height: 10),
                   Container(
-                    width: 350,
-                    decoration: BoxDecoration(
-                      color: Colors.grey[350],
-                    ),
+                    width: 390,
                     child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         Padding(
                           padding: const EdgeInsets.symmetric(
-                              horizontal: 10, vertical: 10),
+                              horizontal: 10, vertical: 20),
                           child: Text(
                             style: TextStyle(
                                 fontWeight: FontWeight.bold, fontSize: 18),
-                            "BERITA",
+                            "Daftar Konsultan",
                           ),
                         ),
-                        ListView(
-                          physics: NeverScrollableScrollPhysics(),
-                          shrinkWrap: true,
-                          padding: EdgeInsets.only(top: 5),
+                        Wrap(
+                          alignment: WrapAlignment.start,
+                          spacing: 20,
                           children: [
-                            Berita("Berita 1", "contoh deskripsi"),
-                            Berita("Berita 2", "contoh deskripsi"),
-                            Berita("Berita 3", "contoh deskripsi"),
-                            Berita("Berita 4", "contoh deskripsi"),
-                            Berita("Berita 5", "contoh deskripsi"),
-                            Berita("Berita 6", "contoh deskripsi"),
-                            Berita("Berita 7", "contoh deskripsi"),
+                            Berita(
+                              "Debi NS",
+                              "https://i.pravatar.cc/150?img=47",
+                              "Konsultan Bidang Pertanian",
+                            ),
+                            Berita(
+                              "Broto S",
+                              "https://i.pravatar.cc/301",
+                              "Konsultan Bidang Perkebunan",
+                            ),
+                            Berita(
+                              "Fadly FS",
+                              "https://i.pravatar.cc/302",
+                              "Konsultan Bidang Perikanan",
+                            ),
+                            Berita(
+                              "Kaela Tirta",
+                              "https://i.pravatar.cc/303",
+                              "Konsultan Bidang Kehutanan",
+                            ),
+                            Berita(
+                              "Ambarita",
+                              "https://i.pravatar.cc/304",
+                              "Konsultan Bidang Pariwisata",
+                            ),
+                            Berita(
+                              "Bli Suwung",
+                              "https://i.pravatar.cc/305",
+                              "Konsultan Bidang Pertanian",
+                            ),
+                            Berita(
+                              "Poppi",
+                              "https://i.pravatar.cc/306",
+                              "Konsultan Bidang Kehutanan",
+                            ),
                           ],
                         ),
                       ],
@@ -292,46 +319,59 @@ class Menu extends StatelessWidget {
 }
 
 class Berita extends StatelessWidget {
-  Berita(this.judul, this.desc);
+  Berita(this.nama, this.ppicture, this.desc);
 
-  String judul;
+  String nama;
+  String ppicture;
   String desc;
 
   @override
   Widget build(BuildContext context) {
+    final mediaQuery = MediaQuery.of(context);
+    final screenWidth = mediaQuery.size.width;
+    final screenHeight = mediaQuery.size.height;
     return Padding(
       padding: const EdgeInsets.only(bottom: 20),
-      child: Row(
+      child: Column(
         children: [
           Container(
-            width: 75,
-            height: 75,
-            color: Colors.grey,
-          ),
-          Container(
-            padding: EdgeInsets.only(top: 7, left: 5, right: 5),
-            height: 75,
-            width: 270,
-            color: Colors.white,
+            height: screenHeight * 0.25,
+            width: screenWidth * 0.45,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(15),
+              color: Colors.white,
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.grey.withOpacity(0.5),
+                  spreadRadius: 3,
+                  blurRadius: 5,
+                  offset: Offset(0, 3),
+                ),
+              ],
+            ),
             child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
+                Container(
+                  margin: EdgeInsets.only(top: 10, bottom: 10),
+                  height: 90,
+                  width: 90,
+                  decoration: BoxDecoration(
+                    image: DecorationImage(
+                      image: NetworkImage(ppicture),
+                      fit: BoxFit.fill,
+                    ),
+                    color: Colors.grey,
+                    borderRadius: BorderRadius.circular(50),
+                  ),
+                ),
                 Text(
-                  judul,
+                  nama,
                   style: TextStyle(
-                    fontWeight: FontWeight.w600,
                     fontSize: 14,
+                    fontWeight: FontWeight.bold,
                   ),
                 ),
-                Divider(
-                  color: Colors.black,
-                ),
-                Text(
-                  desc,
-                  style: TextStyle(
-                    fontSize: 11,
-                  ),
-                ),
+                Text(desc, textAlign: TextAlign.center),
               ],
             ),
           ),
