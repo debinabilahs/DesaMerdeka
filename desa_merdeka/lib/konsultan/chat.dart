@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'dart:io';
 import 'dart:math';
 
+import 'package:desa_merdeka/konsultan/profile_konsultan.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_chat_types/flutter_chat_types.dart' as types;
@@ -51,7 +52,10 @@ class _MyHomePageState extends State<MyHomePage> {
                 children: <Widget>[
                   IconButton(
                     onPressed: () {
-                      Navigator.pop(context);
+                      Navigator.of(context).push(
+                        MaterialPageRoute(
+                            builder: (context) => UserProfilePage()),
+                      );
                     },
                     icon: Icon(
                       Icons.arrow_back,
@@ -62,8 +66,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     width: 2,
                   ),
                   CircleAvatar(
-                    backgroundImage: NetworkImage(
-                        "<https://randomuser.me/api/portraits/men>"),
+                    backgroundImage: AssetImage("images/DesaMerdeka.png"),
                     maxRadius: 20,
                   ),
                   SizedBox(

@@ -5,65 +5,63 @@ class Konsultasi extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
-        backgroundColor: Colors.grey,
-        appBar: AppBar(
-          backgroundColor: Colors.green.shade800,
-          title: Text('DESA MERDEKA'),
-          centerTitle: false,
-        ),
-        body: SingleChildScrollView(
-          child: Center(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Container(
-                  margin: EdgeInsets.only(top: 20),
-                  width: 325,
-                  height: 75,
-                  decoration: BoxDecoration(
-                    color: Color.fromARGB(255, 30, 150, 50),
-                    borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(15),
-                      topRight: Radius.circular(15),
-                    ),
+    return Scaffold(
+      backgroundColor: Colors.grey,
+      appBar: AppBar(
+        backgroundColor: Colors.green.shade800,
+        title: Text('DESA MERDEKA'),
+        centerTitle: false,
+      ),
+      body: SingleChildScrollView(
+        child: Center(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Container(
+                margin: EdgeInsets.only(top: 20),
+                width: 325,
+                height: 75,
+                decoration: BoxDecoration(
+                  color: Color.fromARGB(255, 30, 150, 50),
+                  borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(15),
+                    topRight: Radius.circular(15),
                   ),
-                  child: Center(
-                    child: Text(
-                      "Pilih Konsultan",
-                      style: TextStyle(
-                        fontSize: 20,
-                        color: Colors.white,
-                      ),
+                ),
+                child: Center(
+                  child: Text(
+                    "Pilih Konsultan",
+                    style: TextStyle(
+                      fontSize: 20,
+                      color: Colors.white,
                     ),
                   ),
                 ),
-                Container(
-                  margin: EdgeInsets.only(top: 20),
-                  width: 325,
-                  decoration: BoxDecoration(
-                    color: Color.fromARGB(255, 225, 225, 225),
-                  ),
-                  child: ListView(
-                    physics: NeverScrollableScrollPhysics(),
-                    shrinkWrap: true,
-                    children: [
-                      Konsultan("  Konsultan A"),
-                      Konsultan("  Konsultan B"),
-                      Konsultan("  Konsultan C"),
-                      Konsultan("  Konsultan D"),
-                      Konsultan("  Konsultan E"),
-                      Konsultan("  Konsultan F"),
-                      Konsultan("  Konsultan G"),
-                      Konsultan("  Konsultan H"),
-                      Konsultan("  Konsultan I"),
-                    ],
-                  ),
+              ),
+              Container(
+                margin: EdgeInsets.only(top: 20),
+                width: 325,
+                decoration: BoxDecoration(
+                  color: Color.fromARGB(255, 225, 225, 225),
                 ),
-              ],
-            ),
+                child: ListView(
+                  physics: NeverScrollableScrollPhysics(),
+                  shrinkWrap: true,
+                  children: [
+                    Konsultan("  Konsultan A"),
+                    Konsultan("  Konsultan B"),
+                    Konsultan("  Konsultan C"),
+                    Konsultan("  Konsultan D"),
+                    Konsultan("  Konsultan E"),
+                    Konsultan("  Konsultan F"),
+                    Konsultan("  Konsultan G"),
+                    Konsultan("  Konsultan H"),
+                    Konsultan("  Konsultan I"),
+                  ],
+                ),
+              ),
+            ],
           ),
         ),
       ),

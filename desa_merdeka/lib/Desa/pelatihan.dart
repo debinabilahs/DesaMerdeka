@@ -1,9 +1,8 @@
-import 'dart:collection';
-
 import 'package:flutter/material.dart';
+import 'package:desa_merdeka/Desa/screens/home_screen.dart';
 
 class PagePelatihan extends StatelessWidget {
-  const PagePelatihan({super.key});
+  PagePelatihan({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
