@@ -21,7 +21,7 @@ class _MessagePageState extends State<MessagePage> {
               width: 360,
               height: 70,
               decoration: BoxDecoration(
-                color: Color.fromARGB(255, 134, 33, 26),
+                color: Colors.grey.shade700,
                 borderRadius: BorderRadius.only(
                   topLeft: Radius.circular(15),
                   topRight: Radius.circular(15),
@@ -32,11 +32,13 @@ class _MessagePageState extends State<MessagePage> {
                   vertical: 24,
                   horizontal: 10,
                 ),
-                child: Text(
-                  "Chat messages",
-                  style: TextStyle(
-                    fontSize: 20,
-                    color: Colors.white,
+                child: Center(
+                  child: Text(
+                    "Chat messages",
+                    style: TextStyle(
+                      fontSize: 20,
+                      color: Colors.white,
+                    ),
                   ),
                 ),
               ),

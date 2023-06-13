@@ -1,5 +1,6 @@
 import 'dart:convert';
-import 'package:desa_merdeka/Desa/home.dart';
+
+import 'package:desa_merdeka/Desa/screens/home_screen.dart';
 import 'package:desa_merdeka/konsultan/profile_konsultan.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -25,7 +26,7 @@ class _LoginState extends State<Login> {
 
   void ProsesLogin() async {
     final response = await http.post(
-        Uri.parse("http://192.168.65.93/login/login1.php"),
+        Uri.parse("http://192.168.120.93/login/login1.php"),
         body: {"email": emailC.text, "password": passC.text});
     var dataUser = jsonDecode(response.body);
     print(dataUser);
@@ -76,7 +77,7 @@ class _LoginState extends State<Login> {
                 width: 100,
                 height: 100,
                 padding: EdgeInsets.all(5),
-                child: Image.asset("images/DesaMerdeka.jpg")),
+                child: Image.asset("images/Desa_Merdeka.png")),
             Container(
               margin: EdgeInsets.all(10),
               decoration: BoxDecoration(color: Colors.white),
