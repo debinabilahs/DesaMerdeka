@@ -1,72 +1,82 @@
 import 'package:flutter/material.dart';
+import 'package:desa_merdeka/Desa/screens/home_screen.dart';
 
 class PagePelatihan extends StatelessWidget {
   PagePelatihan({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.white,
-      appBar: AppBar(
-        leading: BackButton(
-          onPressed: () =>
-              Navigator.of(context, rootNavigator: true).pop(context),
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: PagePelatihanDesa(),
+    );
+  }
+}
+
+class PagePelatihanDesa extends StatelessWidget {
+  PagePelatihanDesa({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: Scaffold(
+        backgroundColor: Colors.grey,
+        appBar: AppBar(
+          backgroundColor: Colors.green.shade800,
+          title: Text('DESA MERDEKA'),
+          centerTitle: false,
         ),
-        backgroundColor: Colors.green.shade800,
-        title: Text('Desa Merdeka'),
-        centerTitle: false,
-      ),
-      body: SingleChildScrollView(
-        physics: BouncingScrollPhysics(),
-        child: Center(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Container(
-                margin: EdgeInsets.only(top: 20),
-                width: 325,
-                height: 75,
-                decoration: BoxDecoration(
-                  color: Color.fromARGB(255, 134, 33, 26),
-                  borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(15),
-                    topRight: Radius.circular(15),
+        body: SingleChildScrollView(
+          child: Center(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Container(
+                  margin: EdgeInsets.only(top: 20),
+                  width: 325,
+                  height: 75,
+                  decoration: BoxDecoration(
+                    color: Color.fromARGB(255, 30, 150, 50),
+                    borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(15),
+                      topRight: Radius.circular(15),
+                    ),
                   ),
-                ),
-                child: Center(
-                  child: Text(
-                    "Pilih Pelatihan",
-                    style: TextStyle(
-                      fontSize: 20,
-                      color: Colors.white,
+                  child: Center(
+                    child: Text(
+                      "Pilih Pelatihan",
+                      style: TextStyle(
+                        fontSize: 20,
+                        color: Colors.white,
+                      ),
                     ),
                   ),
                 ),
-              ),
-              Container(
-                margin: EdgeInsets.only(top: 20),
-                width: 325,
-                decoration: BoxDecoration(
-                  color: Color.fromARGB(255, 225, 225, 225),
+                Container(
+                  margin: EdgeInsets.only(top: 20),
+                  width: 325,
+                  decoration: BoxDecoration(
+                    color: Color.fromARGB(255, 225, 225, 225),
+                  ),
+                  child: ListView(
+                    physics: NeverScrollableScrollPhysics(),
+                    shrinkWrap: true,
+                    children: [
+                      Pelatihan("  Pelatihan A"),
+                      Pelatihan("  Pelatihan B"),
+                      Pelatihan("  Pelatihan C"),
+                      Pelatihan("  Pelatihan D"),
+                      Pelatihan("  Pelatihan E"),
+                      Pelatihan("  Pelatihan F"),
+                      Pelatihan("  Pelatihan G"),
+                      Pelatihan("  Pelatihan H"),
+                      Pelatihan("  Pelatihan I"),
+                    ],
+                  ),
                 ),
-                child: ListView(
-                  physics: NeverScrollableScrollPhysics(),
-                  shrinkWrap: true,
-                  children: [
-                    Pelatihan("  Pelatihan A"),
-                    Pelatihan("  Pelatihan B"),
-                    Pelatihan("  Pelatihan C"),
-                    Pelatihan("  Pelatihan D"),
-                    Pelatihan("  Pelatihan E"),
-                    Pelatihan("  Pelatihan F"),
-                    Pelatihan("  Pelatihan G"),
-                    Pelatihan("  Pelatihan H"),
-                    Pelatihan("  Pelatihan I"),
-                  ],
-                ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),

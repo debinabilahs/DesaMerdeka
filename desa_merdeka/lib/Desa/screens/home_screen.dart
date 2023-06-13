@@ -1,11 +1,25 @@
 import 'package:desa_merdeka/Desa/konsultan.dart';
 import 'package:desa_merdeka/Desa/pelatihan.dart';
 import 'package:desa_merdeka/Desa/potensi.dart';
+import 'package:desa_merdeka/Desa/pages/account_page.dart';
+import 'package:desa_merdeka/Desa/pages/message_page.dart';
+import 'package:desa_merdeka/Desa/pages/notif_page.dart';
+import 'package:desa_merdeka/Desa/profile_desa.dart';
 import 'package:flutter/material.dart';
-import 'account_page.dart';
-import 'message_page.dart';
-import 'profile_desa.dart';
-import 'notif_page.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+
+class DesaMerdeka extends StatelessWidget {
+  const DesaMerdeka({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      title: 'Desa Merdeka',
+      home: const MainPage(),
+    );
+  }
+}
 
 class MainPage extends StatefulWidget {
   const MainPage({super.key, String? email});

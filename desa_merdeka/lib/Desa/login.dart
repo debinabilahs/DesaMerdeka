@@ -1,6 +1,7 @@
+import 'package:desa_merdeka/Desa/screens/home_screen.dart';
+import 'package:desa_merdeka/Desa/screens/signup_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:desa_merdeka/Desa/home.dart';
-import 'registrasi.dart';
+
 
 class LoginPage extends StatelessWidget {
   LoginPage({Key? key}) : super(key: key);
@@ -83,7 +84,7 @@ class LoginPage extends StatelessWidget {
                 onPressed: () {
                   Navigator.of(context).push(
                     MaterialPageRoute(
-                      builder: (context) => RegistrasiPage(),
+                      builder: (context) => SignUpScreen(),
                     ),
                   );
                 },

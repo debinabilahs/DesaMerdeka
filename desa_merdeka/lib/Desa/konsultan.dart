@@ -8,16 +8,11 @@ class Konsultasi extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.grey,
       appBar: AppBar(
-        leading: BackButton(
-          onPressed: () =>
-              Navigator.of(context, rootNavigator: true).pop(context),
-        ),
         backgroundColor: Colors.green.shade800,
-        title: Text('Desa Merdeka'),
+        title: Text('DESA MERDEKA'),
         centerTitle: false,
       ),
       body: SingleChildScrollView(
-        physics: BouncingScrollPhysics(),
         child: Center(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
@@ -28,7 +23,7 @@ class Konsultasi extends StatelessWidget {
                 width: 325,
                 height: 75,
                 decoration: BoxDecoration(
-                  color: Color.fromARGB(255, 134, 33, 26),
+                  color: Color.fromARGB(255, 30, 150, 50),
                   borderRadius: BorderRadius.only(
                     topLeft: Radius.circular(15),
                     topRight: Radius.circular(15),
