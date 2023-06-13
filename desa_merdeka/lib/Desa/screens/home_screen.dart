@@ -1,3 +1,4 @@
+import 'package:desa_merdeka/Desa/kerja_sama.dart';
 import 'package:desa_merdeka/Desa/konsultan.dart';
 import 'package:desa_merdeka/Desa/pelatihan.dart';
 import 'package:desa_merdeka/Desa/potensi.dart';
@@ -203,7 +204,7 @@ class HomePage extends StatelessWidget {
                         Menu(
                           menu: "Kerja sama",
                           icon: Icons.handshake,
-                          page: () => PotensiDesa(),
+                          page: () => KerjasamaForm(),
                         ),
                       ],
                     ),

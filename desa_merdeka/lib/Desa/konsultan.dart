@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class Konsultasi extends StatelessWidget {
   Konsultasi({Key? key}) : super(key: key);
@@ -52,15 +53,15 @@ class Konsultasi extends StatelessWidget {
                   physics: NeverScrollableScrollPhysics(),
                   shrinkWrap: true,
                   children: [
-                    Konsultan("  Konsultan A"),
-                    Konsultan("  Konsultan B"),
-                    Konsultan("  Konsultan C"),
-                    Konsultan("  Konsultan D"),
-                    Konsultan("  Konsultan E"),
-                    Konsultan("  Konsultan F"),
-                    Konsultan("  Konsultan G"),
-                    Konsultan("  Konsultan H"),
-                    Konsultan("  Konsultan I"),
+                    Konsultan("Konsultan A", "+6281234567890"),
+                    Konsultan("Konsultan B", "+6281234567891"),
+                    Konsultan("Konsultan C", "+6281234567892"),
+                    Konsultan("Konsultan D", "+6281234567893"),
+                    Konsultan("Konsultan E", "+6281234567894"),
+                    Konsultan("Konsultan F", "+6281234567895"),
+                    Konsultan("Konsultan G", "+6281234567896"),
+                    Konsultan("Konsultan H", "+6281234567897"),
+                    Konsultan("Konsultan I", "+6281234567898"),
                   ],
                 ),
               ),
@@ -73,9 +74,19 @@ class Konsultasi extends StatelessWidget {
 }
 
 class Konsultan extends StatelessWidget {
-  Konsultan(this.text);
+  Konsultan(this.text, this.phoneNumber);
 
-  String text;
+  final String text;
+  final String phoneNumber;
+
+  void _openWhatsApp() async {
+    String url = "https://wa.me/$phoneNumber";
+    if (await canLaunch(url)) {
+      await launch(url);
+    } else {
+      throw 'Could not launch $url';
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -92,7 +103,17 @@ class Konsultan extends StatelessWidget {
             height: 75,
             width: 250,
             color: Colors.white,
-            child: Text(text),
+            child: GestureDetector(
+              onTap: _openWhatsApp,
+              child: Row(
+                children: [
+                  SizedBox(width: 10),
+                  Expanded(child: Text(text)),
+                  Icon(Icons.chat_bubble, color: Colors.green.shade800),
+                  SizedBox(width: 10),
+                ],
+              ),
+            ),
           ),
         ],
       ),
