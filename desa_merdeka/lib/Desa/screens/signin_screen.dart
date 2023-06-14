@@ -6,6 +6,7 @@ import 'package:desa_merdeka/Desa/screens/signup_screen.dart';
 import 'package:desa_merdeka/Desa/utils/color_utils.dart';
 
 import 'package:flutter/material.dart';
+// import 'package:fluttertoast/fluttertoast.dart';
 
 class SignInScreen extends StatefulWidget {
   const SignInScreen({Key? key}) : super(key: key);
@@ -106,4 +107,34 @@ class _SignInScreenState extends State<SignInScreen> {
       ),
     );
   }
+
+  // _signin(String _email, String _password) async {
+  //   try {
+  //     //Create Get Firebase Auth User
+  //     await FirebaseAuth.instance
+  //         .signInWithEmailAndPassword(email: _email, password: _password);
+  //     //Success
+  //     Navigator.push(
+  //         context, MaterialPageRoute(builder: (context) => DesaMerdeka()));
+  //   } on FirebaseAuthException catch (error) {
+  //     Fluttertoast.showToast(msg: error.message, gravity: ToastGravity.TOP);
+  //   }
+  // }
+
+  // _signup(String _email, String _password) async {
+  //   try {
+  //     //Create Get Firebase Auth User
+  //     await FirebaseAuth.instance
+  //         .signInWithEmailAndPassword(email: _email, password: _password);
+
+  //     //Success
+  //     Navigator.push(
+  //         context, MaterialPageRoute(builder: (context) => DesaMerdeka()));
+  //   } on FirebaseAuthException catch (error) {
+  //     Fluttertoast.showToast(
+  //       msg: error.message,
+  //       gravity: ToastGravity.TOP,
+  //     );
+  //   }
+  // }
 }

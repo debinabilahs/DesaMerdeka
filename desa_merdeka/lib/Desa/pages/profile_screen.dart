@@ -20,7 +20,18 @@ class _ProfileScreenState extends State<ProfileScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('My Profile'),
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back),
+          onPressed: () {
+            Navigator.pop(context);
+          },
+        ),
+        backgroundColor: Colors.green.shade800,
+        title: Text(
+          'DESA MERDEKA',
+          style: TextStyle(fontWeight: FontWeight.bold),
+        ),
+        centerTitle: false,
       ),
       body: Center(
         child: Column(
@@ -88,6 +99,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 );
               },
               child: Text('Edit Profile'),
+              style: ElevatedButton.styleFrom(
+                primary: Colors.green,
+              ),
             ),
           ],
         ),
