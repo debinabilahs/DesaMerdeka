@@ -39,80 +39,79 @@ class PagePelatihanDesa extends StatelessWidget {
           centerTitle: false,
         ),
         body: SingleChildScrollView(
-        child: Center(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Container(
-                margin: EdgeInsets.only(top: 20),
-                width: 325,
-                height: 75,
-                decoration: BoxDecoration(
-                  color: Color.fromARGB(255, 30, 150, 50),
-                  borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(15),
-                    topRight: Radius.circular(15),
-                  ),
-                ),
-                child: Center(
-                  child: Column(
-                    children: [
-                      Text(
-                        "Pilih Pelatihan",
-                        style: TextStyle(
-                          fontSize: 20,
-                          color: Colors.white,
-                        ),
-                      ),
-                      Container(
+          child: Center(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Container(
                   margin: EdgeInsets.only(top: 20),
                   width: 325,
+                  height: 75,
                   decoration: BoxDecoration(
-                    color: Color.fromARGB(255, 225, 225, 225),
+                    color: Color.fromARGB(255, 30, 150, 50),
+                    borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(15),
+                      topRight: Radius.circular(15),
+                    ),
                   ),
-                  child: ListView(
-                    physics: NeverScrollableScrollPhysics(),
-                    shrinkWrap: true,
-                    children: [
-                      Pelatihan("Pelatihan A", "+6281234567890"),
-                      Pelatihan("Pelatihan B", "+6281234567891"),
-                      Pelatihan("Pelatihan C", "+6281234567892"),
-                      Pelatihan("Pelatihan D", "+6281234567893"),
-                      Pelatihan("Pelatihan E", "+6281234567894"),
-                      Pelatihan("Pelatihan F", "+6281234567894"),
-                      Pelatihan("Pelatihan G", "+6281234567894"),
-                      Pelatihan("Pelatihan H", "+6281234567894"),
-                      Pelatihan("Pelatihan I", "+6281234567894"),
-                    ],
+                  child: Center(
+                    child: Column(
+                      children: [
+                        Text(
+                          "Pilih Pelatihan",
+                          style: TextStyle(
+                            fontSize: 20,
+                            color: Colors.white,
+                          ),
+                        ),
+                        Container(
+                          margin: EdgeInsets.only(top: 20),
+                          width: 325,
+                          decoration: BoxDecoration(
+                            color: Color.fromARGB(255, 225, 225, 225),
+                          ),
+                          child: ListView(
+                            physics: NeverScrollableScrollPhysics(),
+                            shrinkWrap: true,
+                            children: [
+                              Pelatihan("Pelatihan A", "+6281234567890"),
+                              Pelatihan("Pelatihan B", "+6281234567891"),
+                              Pelatihan("Pelatihan C", "+6281234567892"),
+                              Pelatihan("Pelatihan D", "+6281234567893"),
+                              Pelatihan("Pelatihan E", "+6281234567894"),
+                              Pelatihan("Pelatihan F", "+6281234567894"),
+                              Pelatihan("Pelatihan G", "+6281234567894"),
+                              Pelatihan("Pelatihan H", "+6281234567894"),
+                              Pelatihan("Pelatihan I", "+6281234567894"),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
+
+                  // child: ListView(
+                  //   physics: NeverScrollableScrollPhysics(),
+                  //   shrinkWrap: true,
+                  //   children: [
+                  //     Pelatihan("  Pelatihan A"),
+                  //     Pelatihan("  Pelatihan B"),
+                  //     Pelatihan("  Pelatihan C"),
+                  //     Pelatihan("  Pelatihan D"),
+                  //     Pelatihan("  Pelatihan E"),
+                  //     Pelatihan("  Pelatihan F"),
+                  //     Pelatihan("  Pelatihan G"),
+                  //     Pelatihan("  Pelatihan H"),
+                  //     Pelatihan("  Pelatihan I"),
+                  //   ],
+                  // ),
                 ),
-                    ],
-                  ),
-                ),
-                
-                // child: ListView(
-                //   physics: NeverScrollableScrollPhysics(),
-                //   shrinkWrap: true,
-                //   children: [
-                //     Pelatihan("  Pelatihan A"),
-                //     Pelatihan("  Pelatihan B"),
-                //     Pelatihan("  Pelatihan C"),
-                //     Pelatihan("  Pelatihan D"),
-                //     Pelatihan("  Pelatihan E"),
-                //     Pelatihan("  Pelatihan F"),
-                //     Pelatihan("  Pelatihan G"),
-                //     Pelatihan("  Pelatihan H"),
-                //     Pelatihan("  Pelatihan I"),
-                //   ],
-                // ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),
-      ),
-      
     );
   }
 }

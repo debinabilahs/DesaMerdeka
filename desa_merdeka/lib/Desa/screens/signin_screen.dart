@@ -22,7 +22,7 @@ class _SignInScreenState extends State<SignInScreen> {
     return Scaffold(
       appBar: AppBar(
           backgroundColor: Colors.green.shade800,
-          leading: logoWidget("assets/images/Desa_Merdeka.png"),
+          leading: logoWidget("assets/images/DesaMerdeka.png"),
           title: Text(
             'DESA MERDEKA',
             style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
@@ -37,7 +37,7 @@ class _SignInScreenState extends State<SignInScreen> {
                 20, MediaQuery.of(context).size.height * 0, 20, 0),
             child: Column(
               children: <Widget>[
-                logoWidget("assets/images/Desa_Merdeka.png"),
+                logoWidget("assets/images/DesaMerdeka.png"),
                 reusableTextField("Enter UserName", Icons.person_outline, false,
                     _emailTextController),
                 const SizedBox(
