@@ -61,9 +61,6 @@ class MessagePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Chat'),
-      ),
       body: ListView.builder(
         itemCount: messages.length,
         itemBuilder: (BuildContext context, int index) {
