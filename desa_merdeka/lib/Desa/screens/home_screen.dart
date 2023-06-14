@@ -44,7 +44,7 @@ class _MainPageState extends State<MainPage> {
     return Scaffold(
       appBar: AppBar(
           backgroundColor: Colors.green.shade800,
-          leading: logoWidget("assets/images/Desa_Merdeka.png"),
+          leading: logoWidget("assets/images/DesaMerdeka.png"),
           title: Text(
             'DESA MERDEKA',
             style: TextStyle(fontWeight: FontWeight.bold),
