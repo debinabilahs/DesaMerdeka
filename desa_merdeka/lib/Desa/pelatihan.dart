@@ -39,33 +39,33 @@ class PagePelatihanDesa extends StatelessWidget {
           centerTitle: false,
         ),
         body: SingleChildScrollView(
-          child: Center(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Container(
-                  margin: EdgeInsets.only(top: 20),
-                  width: 325,
-                  height: 75,
-                  decoration: BoxDecoration(
-                    color: Color.fromARGB(255, 30, 150, 50),
-                    borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(15),
-                      topRight: Radius.circular(15),
-                    ),
-                  ),
-                  child: Center(
-                    child: Text(
-                      "Pilih Pelatihan",
-                      style: TextStyle(
-                        fontSize: 20,
-                        color: Colors.white,
-                      ),
-                    ),
+        child: Center(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Container(
+                margin: EdgeInsets.only(top: 20),
+                width: 325,
+                height: 75,
+                decoration: BoxDecoration(
+                  color: Color.fromARGB(255, 30, 150, 50),
+                  borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(15),
+                    topRight: Radius.circular(15),
                   ),
                 ),
-                Container(
+                child: Center(
+                  child: Column(
+                    children: [
+                      Text(
+                        "Pilih Pelatihan",
+                        style: TextStyle(
+                          fontSize: 20,
+                          color: Colors.white,
+                        ),
+                      ),
+                      Container(
                   margin: EdgeInsets.only(top: 20),
                   width: 325,
                   decoration: BoxDecoration(
@@ -87,11 +87,32 @@ class PagePelatihanDesa extends StatelessWidget {
                     ],
                   ),
                 ),
-              ],
-            ),
+                    ],
+                  ),
+                ),
+                
+                // child: ListView(
+                //   physics: NeverScrollableScrollPhysics(),
+                //   shrinkWrap: true,
+                //   children: [
+                //     Pelatihan("  Pelatihan A"),
+                //     Pelatihan("  Pelatihan B"),
+                //     Pelatihan("  Pelatihan C"),
+                //     Pelatihan("  Pelatihan D"),
+                //     Pelatihan("  Pelatihan E"),
+                //     Pelatihan("  Pelatihan F"),
+                //     Pelatihan("  Pelatihan G"),
+                //     Pelatihan("  Pelatihan H"),
+                //     Pelatihan("  Pelatihan I"),
+                //   ],
+                // ),
+              ),
+            ],
           ),
         ),
       ),
+      ),
+      
     );
   }
 }

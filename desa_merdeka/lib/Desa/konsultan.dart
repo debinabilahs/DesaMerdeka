@@ -9,6 +9,12 @@ class Konsultasi extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.grey,
       appBar: AppBar(
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back),
+          onPressed: () {
+            Navigator.pop(context);
+          },
+        ),
         backgroundColor: Colors.green.shade800,
         title: Text(
           'DESA MERDEKA',
